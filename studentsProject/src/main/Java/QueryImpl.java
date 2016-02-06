@@ -21,7 +21,6 @@ public class QueryImpl implements QueryInt {
     public static void main(String[] args) {
         try {
             QueryImpl q = new QueryImpl();
-//            Student st;
             ResultSet res = q.studListSelectAllStudents();
 
             while(res.next()) {
@@ -32,12 +31,9 @@ public class QueryImpl implements QueryInt {
                 System.out.println(res.getInt("status"));
             }
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-
 
 
     }
