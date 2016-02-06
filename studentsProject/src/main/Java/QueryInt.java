@@ -7,13 +7,13 @@ import java.sql.SQLException;
  */
 public interface QueryInt {
     ResultSet studListSelectAllStudents() throws ClassNotFoundException, SQLException;
-    void studListDeleteStudents();
-    void studModUpdateStudent(String pFirstName, String pLastName, String pGroupId, Date pStartDate);
-    void studCrInsertStudent(String pFirstName, String pLastName, String pGroupId, Date pStartDate);
-    ResultSet studProgSelectStudent(long pStudentId);
-    ResultSet studProgSelectMarksForStudent(long pStudentId);
-    ResultSet studProgGetAVGMark(long pStudentId, String pSemesterName);
-    ResultSet discListSelectAllDisciplines();
+    void studListDeleteStudents(long... pStudentIDs) throws ClassNotFoundException, SQLException;
+    void studModUpdateStudent(long pStudentId, String pFirstName, String pLastName, String pGroupId, Date pStartDate) throws ClassNotFoundException, SQLException;
+    void studCrInsertStudent(String pFirstName, String pLastName, String pGroupId, Date pStartDate) throws ClassNotFoundException, SQLException;
+    ResultSet studProgSelectStudent(long pStudentId) throws ClassNotFoundException, SQLException;
+    ResultSet studProgSelectMarksForStudent(long pStudentId) throws ClassNotFoundException, SQLException;
+    ResultSet studProgGetAVGMark(long pStudentId, String pSemesterName) throws ClassNotFoundException, SQLException;
+    ResultSet discListSelectAllDisciplines() throws ClassNotFoundException, SQLException;
     void discListDeleteDiscipline();
     void discModUpdateDiscipline(String pDisciplineName);
     void discCrInsertDiscipline(String pDisciplineName);
