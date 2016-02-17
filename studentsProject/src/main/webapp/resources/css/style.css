@@ -1,0 +1,159 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    background: #EEEEEE;
+}
+.main {
+    width: 1200px;
+    margin: 0px auto;
+    background: #EEEEEE;
+}
+.header {
+    height: 85px;
+    margin-top: 0px;
+}
+.emptyTitle {
+    height: 25px;
+}
+.title {
+    width: 750px;
+    font-size: 24px;
+    text-align: center;
+    outline: 2px solid #C78FC7;
+    background: #FFFFFF;
+    margin-left: 225px;
+    float: left;
+    font-family: cursive;
+}
+.logout {
+    width: 50px;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 985px;
+    margin-top: 18px;
+}
+.pageElements {
+    width: 1200px;
+    height: 500px;
+    background: #EEEEEE;
+}
+.content {
+    width: 750px;
+    margin-left: 225px;
+}
+.buttons {
+    width: 1200px;
+    height: 58px;
+}
+.veryWideButton {
+    border: 1px solid #000000;
+    background: #CCCCCC;
+    font-family: serif;
+    width: 250px;
+}
+.wideButton {
+    border: 1px solid #000000;
+    background: #CCCCCC;
+    font-family: serif;
+    width: 200px;
+}
+.mediumButton {
+    border: 1px solid #000000;
+    background: #CCCCCC;
+    font-family: serif;
+    width: 150px;
+}
+.smallButton {
+    border: 1px solid #000000;
+    background: #CCCCCC;
+    font-family: serif;
+    width: 100px;
+}
+.firstTableRow {
+    background: #CCCCCC;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 14px;
+}
+.textStyle {
+    font-family: cursive;
+}
+.titleTextStyle {
+    font-family: cursive;
+    font-size: 20px;
+}
+.fieldRightNameColStyle {
+    font-family: cursive;
+    font-size: 14px;
+    text-align: right;
+}
+.fieldLeftNameColStyle {
+    font-family: cursive;
+    font-size: 14px;
+    text-align: left;
+    vertical-align: top;
+}
+.fieldColStyle {
+    width: 175px;
+    text-align: center;
+}
+.spaceRow {
+    height: 15px;
+}
+.spaceColumn {
+    width: 150px;
+}
+.studProgressForm {
+    margin-left: 375px;
+    width: 375px;
+    height: auto;
+}
+.discListForm {
+    margin-left: 550px;
+    width: 225px;
+    height: auto;
+}
+.semesterListSelectForm {
+    width: 400px;
+    height: auto;
+}
+.semesterListButtonForm {
+    width: 150px;
+    height: auto;
+    margin-left: 350px;
+}
+.wideFormStyle {
+    height: auto;
+}
+.wideFormFieldNames {
+    width: 150px;
+    float: left;
+}
+.tableTextStyle {
+    font-family: cursive;
+    font-size: 13px;
+}
+.selectStyle {
+    width: 140px;
+    outline: 1px solid #000000;
+    cursor: context-menu;
+    background: url("selectArrow.jpg") no-repeat right white;
+    font-family: cursive;
+    font-size: 11px;
+}
+.mediumInputBoxStyle {
+    width: 140px;
+}
+.multiSelectStyle {
+    width: 175px;
+    height: 150px;
+}
+.checkBoxColumn {
+    text-align: center;
+}
+.warningText {
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 16px;
+    color: red;
+}

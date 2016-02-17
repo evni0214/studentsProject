@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2351722748">
-    <data-source source="LOCAL" name="MySQL - students@localhost" uuid="2b899fbb-f24a-4219-af07-1be993942cce">
+  <component name="DataSourceManagerImpl" format="xml" hash="731185665">
+    <data-source source="LOCAL" name="MySQL - students@localhost" uuid="e85536f3-7600-463c-b07c-bb2603fc2147">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/students</jdbc-url>
       <driver-properties>
