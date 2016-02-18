@@ -1,4 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <meta charset="windows-1251">
@@ -55,13 +57,15 @@
                                 <td> Group </td>
                                 <td> Entrance date </td>
                             </tr>
-                            <tr>
-                                <td class="checkBoxColumn"> <input type="checkbox" name="1"> </td>
-                                <td> Петров </td>
-                                <td> Петр </td>
-                                <td> ИТ-01 </td>
-                                <td> 28/01/2016 </td>
-                            </tr>
+                            <c:forEach items="${students}" var="st">
+                                <tr>
+                                    <td class="checkBoxColumn"> <input type="checkbox" name="1"> </td>
+                                    <td> ${st.firstName} </td>
+                                    <td> ${st.lastName} </td>
+                                    <td> ${st.groupId} </td>
+                                    <td> ${st.startDate} </td>
+                                </tr>
+                            </c:forEach>
                         </table>
                     </div>
                 </div>

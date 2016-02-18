@@ -44,6 +44,18 @@ public class Student {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId=" + studentId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", groupId='" + groupId + '\'' +
+                ", startDate=" + startDate +
+                ", status=" + status +
+                '}';
+    }
+
     public long getStudentId() {
         return studentId;
     }
