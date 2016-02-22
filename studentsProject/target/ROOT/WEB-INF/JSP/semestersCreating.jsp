@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="windows-1251">
-    <title>Mark showing</title>
+    <title>Semester creating</title>
 </head>
 
 <style type="text/css">
@@ -25,35 +25,43 @@
                     <div style="float: left">
                         <a href="/home"> Go to main </a>
                     </div>
-                    <div style="float: left; margin-left: 15px">
+                    <div style="float: left; margin-left: 15px;">
                         <a href="https://google.com/"> Previous page </a>
                     </div>
                     <div class="content">
                         <div class="titleTextStyle">
-                            <a> Fill out fields and click "Show" to get the student's marks for selected semester. </a>
+                            <a> Fill out the fields and click "Create" to crete new semester. </a>
                         </div>
                         <br>
                         <br>
-                        <form class="wideFormStyle">
-                            <table width="600px">
+                        <form class="wideFormStyle" method="post">
+                            <table width="350px">
                                 <tr>
                                     <td class="fieldLeftNameColStyle">
-                                        <a> Select student: </a>
+                                        <a> Semester name </a>
                                     </td>
                                     <td class="fieldColStyle">
-                                        <select class="selectStyle" name="selectStudent">
-                                            <c:forEach items="${studentList}" var="st">
-                                                <option> ${st.firstName} &nbsp; ${st.lastName} &nbsp; ${st.groupId}</option>
-                                            </c:forEach>
-                                        </select>
+                                        <input type="text" name="semesterName">
                                     </td>
+                                </tr>
+                                <tr class="spaceRow"></tr>
+                                <tr>
                                     <td class="fieldLeftNameColStyle">
-                                        <a> Select semester: </a>
+                                        <a> Duration (weeks) </a>
                                     </td>
                                     <td class="fieldColStyle">
-                                        <select class="selectStyle" name="selectSemester">
-                                            <c:forEach items="${semesterList}" var="sem">
-                                                <option> ${sem.semesterName} </option>
+                                        <input type="text" name="semesterDuration">
+                                    </td>
+                                </tr>
+                                <tr class="spaceRow"></tr>
+                                <tr>
+                                    <td class="fieldLeftNameColStyle">
+                                        <a> Included disciplines </a>
+                                    </td>
+                                    <td class="fieldColStyle">
+                                        <select class="multiSelectStyle" multiple name="disciplineList">
+                                            <c:forEach items="${discList}" var="currDisc">
+                                                <option> ${currDisc.disciplineName} </option>
                                             </c:forEach>
                                         </select>
                                     </td>
@@ -61,28 +69,13 @@
                                 <tr class="spaceRow"></tr>
                                 <tr>
                                     <td class="fieldLeftNameColStyle">
-                                        <input class="smallButton" type="submit" value="Show" name="showMarks">
+                                    </td>
+                                    <td class="fieldLeftNameColStyle">
+                                        <input class="mediumButton" type="submit" value="Create" name="createSemester">
                                     </td>
                                 </tr>
                             </table>
                         </form>
-                        <br>
-                        <br>
-                        <a class="textStyle"> Results for student "Петров" in semester "Семестр 1":</a>
-                        <br>
-                        <br>
-                        <table width="500px" border="1">
-                            <tr class="firstTableRow">
-                                <td> Semester </td>
-                                <td> Discipline </td>
-                                <td> Mark </td>
-                            </tr>
-                            <tr>
-                                <td> Семестр 1 </td>
-                                <td> Информатика </td>
-                                <td> 5 </td>
-                            </tr>
-                        </table>
                     </div>
                 </div>
             </div>

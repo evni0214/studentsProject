@@ -14,6 +14,15 @@
         <listener-class>listeners.ContextInitListener</listener-class>
     </listener>
 
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>filters.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>HomeController</servlet-name>
         <servlet-class>controllers.HomeController</servlet-class>
@@ -57,6 +66,33 @@
     <servlet-mapping>
         <servlet-name>MarksShowingController</servlet-name>
         <url-pattern>/mark_list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DisciplinesCreatingController</servlet-name>
+        <servlet-class>controllers.DisciplinesCreatingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisciplinesCreatingController</servlet-name>
+        <url-pattern>/disc_create</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentsCreatingController</servlet-name>
+        <servlet-class>controllers.StudentsCreatingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentsCreatingController</servlet-name>
+        <url-pattern>/stud_create</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SemestersCreatingController</servlet-name>
+        <servlet-class>controllers.SemestersCreatingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SemestersCreatingController</servlet-name>
+        <url-pattern>/sem_create</url-pattern>
     </servlet-mapping>
 
 </web-app>

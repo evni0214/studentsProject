@@ -1,4 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <meta charset="windows-1251">
@@ -21,7 +23,7 @@
             <div class="pageElements">
                 <div class="buttons">
                     <div style="float: left">
-                        <a href="https://google.com/"> Go to main </a>
+                        <a href="/home"> Go to main </a>
                     </div>
                     <div style="float: left; margin-left: 15px">
                         <a href="https://google.com/"> Previous page </a>
@@ -40,7 +42,9 @@
                                     </td>
                                     <td class="fieldColStyle">
                                         <select class="selectStyle" name="selectStudent">
-                                            <option> Петров </option>
+                                            <c:forEach items="${studentList}" var="st">
+                                                <option> ${st.firstName} &nbsp; ${st.lastName} &nbsp; ${st.groupId}</option>
+                                            </c:forEach>
                                         </select>
                                     </td>
                                     <td class="fieldLeftNameColStyle">
@@ -48,7 +52,9 @@
                                     </td>
                                     <td class="fieldColStyle">
                                         <select class="selectStyle" name="selectSemester">
-                                            <option> Семестр 1 </option>
+                                            <c:forEach items="${semesterList}" var="sem">
+                                                <option> ${sem.semesterName} </option>
+                                            </c:forEach>
                                         </select>
                                     </td>
                                 </tr>

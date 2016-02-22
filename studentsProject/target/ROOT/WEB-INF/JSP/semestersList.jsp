@@ -1,4 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <meta charset="windows-1251">
@@ -21,7 +23,7 @@
             <div class="pageElements">
                 <div class="buttons">
                     <div style="float: left">
-                        <a href="https://google.com/"> Go to main </a>
+                        <a href="/home"> Go to main </a>
                     </div>
                     <div style="float: left; margin-left: 15px;">
                         <a href="https://google.com/"> Previous page </a>
@@ -36,7 +38,9 @@
                                     </td>
                                     <td class="fieldColStyle">
                                         <select class="selectStyle" name="listOfSemesters">
-                                            <option> Семестр 1 </option>
+                                            <c:forEach items="${semesterList}" var="sem">
+                                                <option> ${sem.semesterName} </option>
+                                            </c:forEach>
                                         </select>
                                     </td>
                                     <td class="fieldLeftNameColStyle">
@@ -64,15 +68,15 @@
                                 <td> Информатика </td>
                             </tr>
                         </table>
-                        <form class="semesterListButtonForm">
-                            <input class="wideButton" type="submit" value="Create new semester" name="newSemester">
+                        <div class="semesterListButtonForm">
+                            <input class="wideButton" type="submit" value="Create new semester" name="newSemester" onclick="location.href='/sem_create'">
                             <br>
                             <br>
                             <input class="wideButton" type="submit" value="Modify existing semester" name="modifySemester">
                             <br>
                             <br>
                             <input class="wideButton" type="submit" value="Delete semester" name="deleteSemester">
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -23,30 +23,28 @@
             <div class="pageElements">
                 <div class="buttons">
                     <div style="float: left">
-                        <a href="https://google.com/"> Go to main </a>
+                        <a href="/home"> Go to main </a>
                     </div>
                     <div class="content">
-                        <form method="post">
-                            <table width="450px">
-                                <tr>
-                                    <td class="fieldLeftNameColStyle">
-                                        <input type="submit" class="veryWideButton" value="View performance of particular students" name="viewStudent">
-                                    </td>
-                                    <td class="fieldLeftNameColStyle">
-                                        <input type="submit" class="mediumButton" value="Create new student" name="crStudent">
-                                    </td>
-                                </tr>
-                                <tr class="spaceRow"></tr>
-                                <tr>
-                                    <td class="fieldLeftNameColStyle">
-                                        <input type="submit" class="veryWideButton" value="Modify existing student" name="modStudent">
-                                    </td>
-                                    <td class="fieldLeftNameColStyle">
-                                        <input type="submit" class="mediumButton" value="Delete student" name="delStudent">
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
+                        <table width="450px">
+                            <tr>
+                                <td class="fieldLeftNameColStyle">
+                                    <input type="submit" class="veryWideButton" value="View performance of particular students" name="viewStudent">
+                                </td>
+                                <td class="fieldLeftNameColStyle">
+                                    <input type="submit" class="mediumButton" value="Create new student" name="crStudent" onclick="location.href='/stud_create'">
+                                </td>
+                            </tr>
+                            <tr class="spaceRow"></tr>
+                            <tr>
+                                <td class="fieldLeftNameColStyle">
+                                    <input type="submit" class="veryWideButton" value="Modify existing student" name="modStudent">
+                                </td>
+                                <td class="fieldLeftNameColStyle">
+                                    <input type="submit" class="mediumButton" value="Delete student" name="delStudent">
+                                </td>
+                            </tr>
+                        </table>
                         <br>
                         <p class="textStyle"> List of students </p>
                         <table width="750px" border="1">

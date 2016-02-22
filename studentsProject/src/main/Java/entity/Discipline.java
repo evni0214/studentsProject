@@ -6,6 +6,13 @@ package entity;
 public class Discipline {
     private String disciplineName;
 
+    public Discipline(String disciplineName) {
+        this.disciplineName = disciplineName;
+    }
+
+    public Discipline() {
+    }
+
     public String getDisciplineName() {
         return disciplineName;
     }

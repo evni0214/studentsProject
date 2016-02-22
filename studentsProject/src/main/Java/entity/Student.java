@@ -13,6 +13,16 @@ public class Student {
     private Date startDate;
     private Boolean status;
 
+    public Student(String firstName, String lastName, String groupId, Date startDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.groupId = groupId;
+        this.startDate = startDate;
+    }
+
+    public Student() {
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
