@@ -24,6 +24,24 @@
     </filter-mapping>
 
     <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>controllers.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PageNotFound</servlet-name>
+        <servlet-class>controllers.PageNotFoundController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PageNotFound</servlet-name>
+        <url-pattern>/page_not_found</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>HomeController</servlet-name>
         <servlet-class>controllers.HomeController</servlet-class>
     </servlet>

@@ -74,4 +74,10 @@ public class DataService {
         connectionPool.add(conn);
     }
 
+    public void deleteStudents(String[] studentIDs) {
+        DBConnection conn = connectionPool.remove(0);
+        conn.deleteStudents(studentIDs);
+        connectionPool.add(conn);
+    }
+
 }

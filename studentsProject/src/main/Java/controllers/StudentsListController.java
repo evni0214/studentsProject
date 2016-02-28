@@ -21,4 +21,18 @@ public class StudentsListController extends HttpServlet {
         req.setAttribute("titleAttribute", "List of students");
         req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        DataService service = new DataService();
+        String[] parsedIDs = req.getParameter("ids").split(",");
+
+        service.deleteStudents(parsedIDs);
+
+        List<Student> students = service.selectAllStudents();
+        req.setAttribute("students", students);
+        req.setAttribute("currentPage", "studentsList.jsp");
+        req.setAttribute("titleAttribute", "List of students");
+        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
+    }
 }

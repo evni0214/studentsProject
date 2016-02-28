@@ -16,9 +16,11 @@
                                 <a href="/sem_list"> Semesters </a>
                             </td>
                             <td class="spaceColumn"></td>
-                            <td class="fieldRightNameColStyle">
-                                <a href="/mark_list"> Marks </a>
-                            </td>
+                            <c:if test="${role eq admin}">
+                                <td class="fieldRightNameColStyle">
+                                    <a href="/mark_list"> Marks </a>
+                                </td>
+                            </c:if>
                         </tr>
                     </table>
                 </div>

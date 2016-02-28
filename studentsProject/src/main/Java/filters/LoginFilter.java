@@ -6,10 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Evgeny on 21.02.2016.
+ * Created by Evgeny on 28.02.2016.
  */
-public class EncodingFilter implements Filter {
-
+public class LoginFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
 
     }
@@ -17,10 +16,18 @@ public class EncodingFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest)request;
         HttpServletResponse httpServletResponse = (HttpServletResponse)response;
-        httpServletRequest.setCharacterEncoding("UTF-8");
-        httpServletResponse.setCharacterEncoding("UTF-8");
+        String currentRole = (String)httpServletRequest.getSession().getAttribute("role");
+        if(currentRole == null) {
+            httpServletResponse.sendRedirect("/login");
+            return;
+        }
 
-//        httpServletRequest.getSession().setAttribute("role", "student");
+        if(httpServletRequest.getPathInfo().startsWith("/admin")) {
+            if(!currentRole.equals("admin")) {
+                httpServletResponse.sendRedirect("/page_not_found");
+                return;
+            }
+        }
 
         chain.doFilter(httpServletRequest, httpServletResponse);
     }
@@ -28,5 +35,4 @@ public class EncodingFilter implements Filter {
     public void destroy() {
 
     }
-
 }

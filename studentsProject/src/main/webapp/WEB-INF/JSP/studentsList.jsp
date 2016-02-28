@@ -21,7 +21,7 @@
                                     <input type="submit" class="veryWideButton" value="Modify existing student" name="modStudent">
                                 </td>
                                 <td class="fieldLeftNameColStyle">
-                                    <input type="submit" class="mediumButton" value="Delete student" name="delStudent">
+                                    <input type="submit" class="mediumButton" value="Delete student" name="delStudent" onclick="bulkOperation('delete', '/stud_list')">
                                 </td>
                             </tr>
                         </table>
@@ -37,7 +37,7 @@
                             </tr>
                             <c:forEach items="${students}" var="st">
                                 <tr>
-                                    <td class="checkBoxColumn"> <input type="checkbox" name="1"> </td>
+                                    <td class="checkBoxColumn"> <input type="checkbox" name="1" id="${st.studentId}"> </td>
                                     <td> ${st.firstName} </td>
                                     <td> ${st.lastName} </td>
                                     <td> ${st.groupId} </td>

@@ -14,7 +14,7 @@
                         <br>
                         <br>
                         <br>
-                        <div class="wideFormStyle" action="/stud_create" method="post">
+                        <form class="wideFormStyle" action="/stud_create" method="post" name="createStudentForm" id="createStudentForm" onsubmit="validateFields('lastName', 'firstName', 'groupName', 'startDate')">
                             <table width="325">
                                 <tr>
                                     <td class="fieldRightNameColStyle">
@@ -57,11 +57,11 @@
                                     <td class="fieldRightNameColStyle">
                                     </td>
                                     <td class="fieldLeftNameColStyle">
-                                        <input class="smallButton" type="submit" value="Create" name="createStudent" onclick="validateFields('lastName', 'firstName', 'groupName', 'startDate')">
+                                        <input class="smallButton" type="submit" value="Create" name="createStudent">
                                     </td>
                                 </tr>
                             </table>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -12,23 +12,28 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
         $(function() {
-            $( "#startDate" ).datepicker();
+            $("#startDate").datepicker();
         });
 
         function validateFields() {
             for(var i = 0; i < arguments.length; i++) {
-                if(document.getElementById(arguments[i]).value == "")
+                if(document.getElementById(arguments[i]).value == "") {
                     alert("One of fields is empty. Operation is not completed.");
-                    break;
+                    event.preventDefault();
+                    return false;
+                }
             }
+            $('#createStudentForm').submit();
         }
 
-        function deleteStudents() {
+        function bulkOperation() {
             var items = $("input[type=checkbox]:checked");
             if (items.length == 0) {
-                alert("Please select students");
+                alert("No students are selected for operation.");
                 return;
             }
+//            var operationName = arguments[0];
+            var controllerAddress = arguments[1];
             var ids = "";
             for ( var i = 0; i < items.length; i++) {
                 ids += $(items[i]).attr("id");
@@ -39,13 +44,17 @@
 
             console.log(ids);
             console.log("ids=" + ids);
-            var form = '<form id="deleteStudentForm" action="'
-                    + context
-                    + '/admin/studentsList.php" method="post"><input type="hidden" name="ids" /></form>';
+            var form = '<form id="hiddenForm" action="'
+                    + 'http://'
+                    + document.location.host
+                    + controllerAddress
+                    + '" method="post"><input type="hidden" name="ids" id="ids">'
+                    + '<input type="hidden" name="operation" id="operation">'
+                    + '</form>';
             $("body").append(form);
-            $('#deleteStudentForm input').val(ids);
-            $('#deleteStudentForm').submit();
-
+            $('#ids').val(ids);
+//            $('#operation').val(operationName);
+            $('#hiddenForm').submit();
         }
     </script>
 </head>

@@ -22,6 +22,7 @@ public class DBConnection {
     private static PreparedStatement insertDiscipline;
     private static PreparedStatement insertSemester;
     private static PreparedStatement insertSemesterDisciplines;
+    private static PreparedStatement deleteStudents;
 
     public DBConnection(String DB_URL) {
         try {
@@ -147,6 +148,23 @@ public class DBConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void deleteStudents(String[] studentIDs) {
+        StringBuffer query = new StringBuffer("update students set status = 0 where student_id IN (");
+        for(String currID : studentIDs) {
+            query.append("?,");
+        }
+        query.delete(query.length() - 1, query.length());
+        query.append(");");
+        System.out.println(query.toString());
+
+//        try {
+//            insertSemesterDisciplines = conn.prepareStatement(query.toString());
+//            insertSemesterDisciplines.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 
     private void loadPreparedStatements(){
