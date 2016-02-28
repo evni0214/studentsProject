@@ -17,6 +17,8 @@ public class StudentsListController extends HttpServlet {
         DataService service = new DataService();
         List<Student> students = service.selectAllStudents();
         req.setAttribute("students", students);
-        req.getRequestDispatcher("/WEB-INF/JSP/studentsList.jsp").forward(req, resp);
+        req.setAttribute("currentPage", "studentsList.jsp");
+        req.setAttribute("titleAttribute", "List of students");
+        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
     }
 }

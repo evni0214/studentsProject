@@ -1,26 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<html>
-<head>
-    <meta charset="windows-1251">
-    <title>Students list</title>
-</head>
-
-<style type="text/css">
-    @import "/resources/css/style.css";
-</style>
-
-    <body>
-        <div class="main">
-            <div class="header">
-                <div class="emptyTitle"></div>
-                <div class="title"> The control system of students and their academic performance
-                </div>
-                <div class="logout"> <a href="https://google.com/"> Logout </a>
-                </div>
-            </div>
-            <div class="pageElements">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                 <div class="buttons">
                     <div style="float: left">
                         <a href="/home"> Go to main </a>
@@ -61,7 +41,9 @@
                                     <td> ${st.firstName} </td>
                                     <td> ${st.lastName} </td>
                                     <td> ${st.groupId} </td>
-                                    <td> ${st.startDate} </td>
+                                    <td>
+                                        <fmt:formatDate value="${st.startDate}" pattern="dd/MM/YYYY"></fmt:formatDate>
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -69,5 +51,3 @@
                 </div>
             </div>
         </div>
-    </body>
-</html>

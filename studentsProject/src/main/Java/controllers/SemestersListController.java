@@ -17,6 +17,8 @@ public class SemestersListController extends HttpServlet {
         DataService service = new DataService();
         List<Semester> semesterList = service.selectAllSemesters();
         req.setAttribute("semesterList", semesterList);
-        req.getRequestDispatcher("/WEB-INF/JSP/semestersList.jsp").forward(req, resp);
+        req.setAttribute("titleAttribute", "List of semesters");
+        req.setAttribute("currentPage", "semestersList.jsp");
+        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
     }
 }

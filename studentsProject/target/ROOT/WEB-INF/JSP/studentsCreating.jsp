@@ -1,26 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<html>
-<head>
-    <meta charset="windows-1251">
-    <title>Students creating</title>
-</head>
-
-<style type="text/css">
-    @import "/resources/css/style.css";
-</style>
-
-    <body>
-        <div class="main">
-            <div class="header">
-                <div class="emptyTitle"></div>
-                <div class="title"> The control system of students and their academic performance
-                </div>
-                <div class="logout"> <a href="https://google.com/"> Logout </a>
-                </div>
-            </div>
-            <div class="pageElements">
                 <div class="buttons">
                     <div style="float: left">
                         <a href="/home"> Go to main </a>
@@ -35,14 +14,14 @@
                         <br>
                         <br>
                         <br>
-                        <form class="wideFormStyle" action="/stud_create" method="post">
+                        <div class="wideFormStyle" action="/stud_create" method="post">
                             <table width="325">
                                 <tr>
                                     <td class="fieldRightNameColStyle">
                                         <a> Last name </a>
                                     </td>
                                     <td class="fieldColStyle">
-                                        <input type="text" name="lastName">
+                                        <input type="text" name="lastName" id="lastName">
                                     </td>
                                 </tr>
                                 <tr class="spaceRow"></tr>
@@ -51,7 +30,7 @@
                                         <a> First name </a>
                                     </td>
                                     <td class="fieldColStyle">
-                                        <input type="text" name="firstName">
+                                        <input type="text" name="firstName" id="firstName">
                                     </td>
                                 </tr>
                                 <tr class="spaceRow"></tr>
@@ -60,7 +39,7 @@
                                         <a> Group </a>
                                     </td>
                                     <td class="fieldColStyle">
-                                        <input type="text" name="groupName">
+                                        <input type="text" name="groupName" id="groupName">
                                     </td>
                                 </tr>
                                 <tr class="spaceRow"></tr>
@@ -69,7 +48,7 @@
                                         <a> Entrance date </a>
                                     </td>
                                     <td class="fieldColStyle">
-                                        <input type="text" name="startDate">
+                                        <input type="text" name="startDate" id="startDate">
                                     </td>
                                 </tr>
                                 <tr class="spaceRow"></tr>
@@ -78,14 +57,12 @@
                                     <td class="fieldRightNameColStyle">
                                     </td>
                                     <td class="fieldLeftNameColStyle">
-                                        <input class="smallButton" type="submit" value="Create" name="createStudent">
+                                        <input class="smallButton" type="submit" value="Create" name="createStudent" onclick="validateFields('lastName', 'firstName', 'groupName', 'startDate')">
                                     </td>
                                 </tr>
                             </table>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>

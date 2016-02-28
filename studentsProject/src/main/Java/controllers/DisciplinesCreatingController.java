@@ -15,16 +15,18 @@ import java.io.IOException;
 public class DisciplinesCreatingController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/JSP/disciplinesCreating.jsp").forward(req, resp);
+        req.setAttribute("titleAttribute", "Create new discipline");
+        req.setAttribute("currentPage", "disciplinesCreating.jsp");
+        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Discipline discipline = new Discipline(req.getParameter("disciplineName"));
         DataService service = new DataService();
-//        System.out.println(discipline.getDisciplineName());
         service.insertDiscipline(discipline);
-//        System.out.println("INSERT STATEMENT PROCESSED");
-        req.getRequestDispatcher("/WEB-INF/JSP/disciplinesCreating.jsp").forward(req, resp);
+        req.setAttribute("titleAttribute", "Create new discipline");
+        req.setAttribute("currentPage", "disciplinesCreating.jsp");
+        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
     }
 }

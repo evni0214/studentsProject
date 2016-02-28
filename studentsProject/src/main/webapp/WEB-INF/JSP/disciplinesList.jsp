@@ -1,26 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<html>
-<head>
-    <meta charset="windows-1251">
-    <title>Disciplines' list</title>
-</head>
-
-<style type="text/css">
-    @import "/resources/css/style.css";
-</style>
-
-    <body>
-        <div class="main">
-            <div class="header">
-                <div class="emptyTitle"></div>
-                <div class="title"> The control system of students and their academic performance
-                </div>
-                <div class="logout"> <a href="https://google.com/"> Logout </a>
-                </div>
-            </div>
-            <div class="pageElements">
                 <div class="buttons">
                     <div style="float: left">
                         <a href="/home"> Go to main </a>
@@ -61,5 +40,3 @@
                 </div>
             </div>
         </div>
-    </body>
-</html>

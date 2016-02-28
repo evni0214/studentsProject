@@ -16,7 +16,9 @@ import java.sql.Date;
 public class StudentsCreatingController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/JSP/studentsCreating.jsp").forward(req, resp);
+        req.setAttribute("currentPage", "studentsCreating.jsp");
+        req.setAttribute("titleAttribute", "Create new student");
+        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
     }
 
     @Override
@@ -25,12 +27,10 @@ public class StudentsCreatingController extends HttpServlet {
                 req.getParameter("lastName"),
                 req.getParameter("groupName"),
                 Date.valueOf(req.getParameter("startDate")));
-//        System.out.println(student.getFirstName() + " "
-//                + student.getLastName() + " "
-//                + student.getGroupId() + " "
-//                + student.getStartDate());
         DataService service = new DataService();
         service.insertStudent(student);
-        req.getRequestDispatcher("/WEB-INF/JSP/studentsCreating.jsp").forward(req, resp);
+        req.setAttribute("currentPage", "studentsCreating.jsp");
+        req.setAttribute("titleAttribute", "Create new student");
+        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
     }
 }

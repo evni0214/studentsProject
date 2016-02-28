@@ -22,7 +22,9 @@ public class SemestersCreatingController extends HttpServlet {
         DataService service = new DataService();
         List<Discipline> disciplineList = service.selectAllDisciplines();
         req.setAttribute("discList", disciplineList);
-        req.getRequestDispatcher("/WEB-INF/JSP/semestersCreating.jsp").forward(req, resp);
+        req.setAttribute("titleAttribute", "Create new semester");
+        req.setAttribute("currentPage", "semestersCreating.jsp");
+        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
     }
 
     @Override
@@ -42,6 +44,8 @@ public class SemestersCreatingController extends HttpServlet {
 
         disciplineList = service.selectAllDisciplines();
         req.setAttribute("discList", disciplineList);
-        req.getRequestDispatcher("/WEB-INF/JSP/semestersCreating.jsp").forward(req, resp);
+        req.setAttribute("titleAttribute", "Create new semester");
+        req.setAttribute("currentPage", "semestersCreating.jsp");
+        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
     }
 }

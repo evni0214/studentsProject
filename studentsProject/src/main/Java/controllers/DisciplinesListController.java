@@ -19,6 +19,8 @@ public class DisciplinesListController extends HttpServlet {
         DataService service = new DataService();
         List<Discipline> disciplineList = service.selectAllDisciplines();
         req.setAttribute("disciplineList", disciplineList);
-        req.getRequestDispatcher("/WEB-INF/JSP/disciplinesList.jsp").forward(req, resp);
+        req.setAttribute("titleAttribute", "List of disciplines");
+        req.setAttribute("currentPage", "disciplinesList.jsp");
+        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
     }
 }
