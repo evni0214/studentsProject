@@ -5,20 +5,20 @@
                     <table width="750px">
                         <tr>
                             <td class="fieldLeftNameColStyle">
-                                <a href="/stud_list"> Students </a>
+                                <a href="/${role}/stud_list"> Students </a>
                             </td>
                             <td class="spaceColumn"></td>
                             <td class="fieldColStyle">
-                                <a href="/disc_list"> Disciplines </a>
+                                <a href="/${role}/disc_list"> Disciplines </a>
                             </td>
                             <td class="spaceColumn"></td>
                             <td class="fieldColStyle">
-                                <a href="/sem_list"> Semesters </a>
+                                <a href="/${role}/sem_list"> Semesters </a>
                             </td>
                             <td class="spaceColumn"></td>
-                            <c:if test="${role eq admin}">
+                            <c:if test="${role eq 'administrator'}">
                                 <td class="fieldRightNameColStyle">
-                                    <a href="/mark_list"> Marks </a>
+                                    <a href="/${role}/mark_list"> Marks </a>
                                 </td>
                             </c:if>
                         </tr>

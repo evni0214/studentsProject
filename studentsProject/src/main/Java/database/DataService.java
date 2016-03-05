@@ -2,6 +2,7 @@ package database;
 
 import constants.Constants;
 import entity.Discipline;
+import entity.Role;
 import entity.Semester;
 import entity.Student;
 
@@ -74,10 +75,34 @@ public class DataService {
         connectionPool.add(conn);
     }
 
-    public void deleteStudents(String[] studentIDs) {
+    public void deleteStudents(String[] studentIDs)     {
         DBConnection conn = connectionPool.remove(0);
         conn.deleteStudents(studentIDs);
         connectionPool.add(conn);
+    }
+
+    public List<Role> selectAllRoles() {
+        DBConnection conn = connectionPool.remove(0);
+        List<Role> result = conn.selectAllRoles();
+        connectionPool.add(conn);
+
+        return result;
+    }
+
+    public Boolean validateUser(String username, String password) {
+        DBConnection conn = connectionPool.remove(0);
+        Boolean result = conn.validateUser(username, password);
+        connectionPool.add(conn);
+
+        return result;
+    }
+
+    public Boolean validateRole(String username, String role) {
+        DBConnection conn = connectionPool.remove(0);
+        Boolean result = conn.validateRole(username, role);
+        connectionPool.add(conn);
+
+        return result;
     }
 
 }

@@ -17,13 +17,13 @@
                 <div class="emptyTitle"></div>
                 <div class="title"> The control system of students and their academic performance
                 </div>
-                <div class="logout"> <a href="https://google.com/"> Logout </a>
+                <div class="logout"> <a href="/logout"> Logout </a>
                 </div>
             </div>
             <div class="pageElements">
                 <div class="buttons">
                     <div style="float: left">
-                        <a href="/home"> Go to main </a>
+                        <a href="/${role}/home"> Go to main </a>
                     </div>
                     <div style="float: left; margin-left: 15px">
                         <a href="https://google.com/"> Previous page </a>

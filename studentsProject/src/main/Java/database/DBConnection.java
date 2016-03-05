@@ -1,8 +1,6 @@
 package database;
 
-import entity.Discipline;
-import entity.Semester;
-import entity.Student;
+import entity.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -23,6 +21,9 @@ public class DBConnection {
     private static PreparedStatement insertSemester;
     private static PreparedStatement insertSemesterDisciplines;
     private static PreparedStatement deleteStudents;
+    private static PreparedStatement selectAllRoles;
+    private static PreparedStatement validateUser;
+    private static PreparedStatement validateRole;
 
     public DBConnection(String DB_URL) {
         try {
@@ -157,14 +158,64 @@ public class DBConnection {
         }
         query.delete(query.length() - 1, query.length());
         query.append(");");
-        System.out.println(query.toString());
 
-//        try {
-//            insertSemesterDisciplines = conn.prepareStatement(query.toString());
-//            insertSemesterDisciplines.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            insertSemesterDisciplines = conn.prepareStatement(query.toString());
+            insertSemesterDisciplines.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<Role> selectAllRoles() {
+        rs = null;
+        List<Role> roles = new ArrayList<Role>();
+
+        try {
+            rs = selectAllRoles.executeQuery();
+            while (rs.next()) {
+                Role currentRole = new Role();
+
+                currentRole.setName(rs.getString("name"));
+                roles.add(currentRole);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return roles;
+    }
+
+    public Boolean validateUser(String username, String password) {
+        rs = null;
+        Boolean result = false;
+        try {
+            validateUser.setString(1, username);
+            validateUser.setString(2, password);
+            rs = validateUser.executeQuery();
+            if(rs.next())
+                result = true;
+        } catch (SQLException e) {
+            return result;
+        }
+
+        return result;
+    }
+
+    public Boolean validateRole(String username, String role) {
+        rs = null;
+        Boolean result = false;
+        try {
+            validateRole.setString(1, username);
+            validateRole.setString(2, role);
+            rs = validateRole.executeQuery();
+            if(rs.next())
+                result = true;
+        } catch (SQLException e) {
+            return result;
+        }
+
+        return result;
     }
 
     private void loadPreparedStatements(){
@@ -175,6 +226,9 @@ public class DBConnection {
             insertStudent = conn.prepareStatement("insert into students(first_name, last_name, group_id, start_date, status) values (?, ?, ?, ?, 1);");
             insertDiscipline = conn.prepareStatement("insert into disciplines(discipline_name) values(?);");
             insertSemester = conn.prepareStatement("insert into semesters(semester_name, duration) values(?, ?);");
+            selectAllRoles = conn.prepareStatement("select * from roles;");
+            validateUser = conn.prepareStatement("select * from users where username = ? and password = ?;");
+            validateRole = conn.prepareStatement("select * from user_roles where username = ? and role_id = (select role_id from roles where name = ?);");
         } catch (SQLException e) {
             e.printStackTrace();
         }

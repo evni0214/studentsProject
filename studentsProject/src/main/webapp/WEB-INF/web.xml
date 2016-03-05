@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID"
+         version="2.5">
 
   <display-name>Archetype Created Web Application</display-name>
     
     <welcome-file-list>
-        <welcome-file>home</welcome-file>
+        <welcome-file>login</welcome-file>
     </welcome-file-list>
     
     <listener>
@@ -23,6 +23,15 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>filters.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>LoginController</servlet-name>
         <servlet-class>controllers.LoginController</servlet-class>
@@ -33,12 +42,29 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>controllers.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>PageNotFound</servlet-name>
         <servlet-class>controllers.PageNotFoundController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>PageNotFound</servlet-name>
         <url-pattern>/page_not_found</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/student/page_not_found</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/administrator/page_not_found</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -51,11 +77,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
-        <url-pattern>/student//home</url-pattern>
+        <url-pattern>/student/home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
-        <url-pattern>/admin//home</url-pattern>
+        <url-pattern>/administrator/home</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -68,11 +94,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StudentsListController</servlet-name>
-        <url-pattern>/student//stud_list</url-pattern>
+        <url-pattern>/student/stud_list</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StudentsListController</servlet-name>
-        <url-pattern>/admin//stud_list</url-pattern>
+        <url-pattern>/administrator/stud_list</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -89,7 +115,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DisciplinesListController</servlet-name>
-        <url-pattern>/admin/disc_list</url-pattern>
+        <url-pattern>/administrator/disc_list</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -106,7 +132,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SemestersListController</servlet-name>
-        <url-pattern>/admin/sem_list</url-pattern>
+        <url-pattern>/administrator/sem_list</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -123,7 +149,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MarksShowingController</servlet-name>
-        <url-pattern>/admin/mark_list</url-pattern>
+        <url-pattern>/administrator/mark_list</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -140,7 +166,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DisciplinesCreatingController</servlet-name>
-        <url-pattern>/admin/disc_create</url-pattern>
+        <url-pattern>/administrator/disc_create</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -157,7 +183,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StudentsCreatingController</servlet-name>
-        <url-pattern>/admin/stud_create</url-pattern>
+        <url-pattern>/administrator/stud_create</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -174,7 +200,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SemestersCreatingController</servlet-name>
-        <url-pattern>/admin/sem_create</url-pattern>
+        <url-pattern>/administrator/sem_create</url-pattern>
     </servlet-mapping>
 
 </web-app>

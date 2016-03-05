@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                 <div class="buttons">
                     <div style="float: left">
-                        <a href="/home"> Go to main </a>
+                        <a href="/${role}/home"> Go to main </a>
                     </div>
                     <div class="content">
                         <table width="450px">
@@ -12,7 +12,7 @@
                                     <input type="submit" class="veryWideButton" value="View performance of particular students" name="viewStudent">
                                 </td>
                                 <td class="fieldLeftNameColStyle">
-                                    <input type="submit" class="mediumButton" value="Create new student" name="crStudent" onclick="location.href='/stud_create'">
+                                    <input type="submit" class="mediumButton" value="Create new student" name="crStudent" onclick="location.href='/${role}/stud_create'">
                                 </td>
                             </tr>
                             <tr class="spaceRow"></tr>
@@ -21,7 +21,7 @@
                                     <input type="submit" class="veryWideButton" value="Modify existing student" name="modStudent">
                                 </td>
                                 <td class="fieldLeftNameColStyle">
-                                    <input type="submit" class="mediumButton" value="Delete student" name="delStudent" onclick="bulkOperation('delete', '/stud_list')">
+                                    <input type="submit" class="mediumButton" value="Delete student" name="delStudent" onclick="bulkOperation('delete', '/${role}/stud_list')">
                                 </td>
                             </tr>
                         </table>

@@ -2,10 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                 <div class="buttons">
                     <div style="float: left">
-                        <a href="/home"> Go to main </a>
+                        <a href="/${role}/home"> Go to main </a>
                     </div>
                     <div style="float: left; margin-left: 15px;">
-                        <a href="https://google.com/"> Previous page </a>
+                        <a href="/${role}/stud_list"> Previous page </a>
                     </div>
                     <div class="content">
                         <div class="titleTextStyle">
@@ -14,7 +14,7 @@
                         <br>
                         <br>
                         <br>
-                        <form class="wideFormStyle" action="/stud_create" method="post" name="createStudentForm" id="createStudentForm" onsubmit="validateFields('lastName', 'firstName', 'groupName', 'startDate')">
+                        <form class="wideFormStyle" action="/${role}/stud_create" method="post" name="createStudentForm" id="createStudentForm" onsubmit="validateFields('lastName', 'firstName', 'groupName', 'startDate')">
                             <table width="325">
                                 <tr>
                                     <td class="fieldRightNameColStyle">

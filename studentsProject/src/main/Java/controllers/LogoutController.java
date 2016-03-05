@@ -1,19 +1,24 @@
 package controllers;
 
+import database.DataService;
+import entity.Role;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
- * Created by Evgeny on 28.02.2016.
+ * Created by Evgeny on 05.03.2016.
  */
-public class PageNotFoundController extends HttpServlet {
+public class LogoutController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("titleAttribute", "Page not found");
-        req.setAttribute("currentPage", "pageNotFound.jsp");
-        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
+        req.getSession().invalidate();
+
+        resp.sendRedirect("/login");
+        return;
     }
 }

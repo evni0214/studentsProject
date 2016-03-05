@@ -2,10 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                 <div class="buttons">
                     <div style="float: left">
-                        <a href="/home"> Go to main </a>
+                        <a href="/${role}/home"> Go to main </a>
                     </div>
                     <div style="float: left; margin-left: 15px;">
-                        <a href="https://google.com/"> Previous page </a>
+                        <a href="/${role}/home"> Previous page </a>
                     </div>
                     <br>
                     <div class="content">
@@ -48,7 +48,7 @@
                             </tr>
                         </table>
                         <div class="semesterListButtonForm">
-                            <input class="wideButton" type="submit" value="Create new semester" name="newSemester" onclick="location.href='/sem_create'">
+                            <input class="wideButton" type="submit" value="Create new semester" name="newSemester" onclick="location.href='/${role}/sem_create'">
                             <br>
                             <br>
                             <input class="wideButton" type="submit" value="Modify existing semester" name="modifySemester">

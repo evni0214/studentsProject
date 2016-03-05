@@ -69,7 +69,7 @@
         <div class="emptyTitle"></div>
         <div class="title"> The control system of students and their academic performance
         </div>
-        <div class="logout"> <a href="https://google.com/"> Logout </a>
+        <div class="logout"> <a href="/logout"> Logout </a>
         </div>
     </div>
     <div class="pageElements">
