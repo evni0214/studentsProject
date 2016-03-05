@@ -7,7 +7,8 @@
     <meta charset="windows-1251">
     <title> ${titleAttribute} </title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/js/students.js">
+    <%--<link rel="stylesheet" href="/resources/js/students.js">--%>
+    <link rel="stylesheet" href="/resources/css/style.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
@@ -28,40 +29,59 @@
 
         function bulkOperation() {
             var items = $("input[type=checkbox]:checked");
-            if (items.length == 0) {
+            var controllerAddress = arguments[1];
+            if(items.length == 0) {
                 alert("No students are selected for operation.");
+                location.href="";
                 return;
             }
-//            var operationName = arguments[0];
-            var controllerAddress = arguments[1];
-            var ids = "";
-            for ( var i = 0; i < items.length; i++) {
-                ids += $(items[i]).attr("id");
-                if (i < items.length - 1) {
-                    ids += ",";
-                }
-            }
+            var operationName = arguments[0];
+            if(operationName == 'modify') {
+                if(items.length > 1) {
+                    alert("Too many students are selected for operation.");
+                    return;
+                } else {
+                    var ids = "";
+                    ids += $(items[0]).attr("id");
 
-            console.log(ids);
-            console.log("ids=" + ids);
-            var form = '<form id="hiddenForm" action="'
-                    + 'http://'
-                    + document.location.host
-                    + controllerAddress
-                    + '" method="post"><input type="hidden" name="ids" id="ids">'
-                    + '<input type="hidden" name="operation" id="operation">'
-                    + '</form>';
-            $("body").append(form);
-            $('#ids').val(ids);
-//            $('#operation').val(operationName);
-            $('#hiddenForm').submit();
+                    console.log(ids);
+                    console.log("ids=" + ids);
+                    var form = '<form id="hiddenForm" action="'
+                            + 'http://'
+                            + document.location.host
+                            + controllerAddress
+                            + '" method="get"><input type="hidden" name="ids" id="ids">'
+                            + '<input type="hidden" name="operation" id="operation">'
+                            + '</form>';
+                    $("body").append(form);
+                    $('#ids').val(ids);
+                    $('#hiddenForm').submit();
+                }
+            } else if(operationName == 'delete') {
+                var ids = "";
+                for (var i = 0; i < items.length; i++) {
+                    ids += $(items[i]).attr("id");
+                    if (i < items.length - 1) {
+                        ids += ",";
+                    }
+                }
+
+                console.log(ids);
+                console.log("ids=" + ids);
+                var form = '<form id="hiddenForm" action="'
+                        + 'http://'
+                        + document.location.host
+                        + controllerAddress
+                        + '" method="post"><input type="hidden" name="ids" id="ids">'
+                        + '<input type="hidden" name="operation" id="operation">'
+                        + '</form>';
+                $("body").append(form);
+                $('#ids').val(ids);
+                $('#hiddenForm').submit();
+            }
         }
     </script>
 </head>
-
-<style type="text/css">
-    @import "/resources/css/style.css";
-</style>
 
 <body>
 <div class="main">

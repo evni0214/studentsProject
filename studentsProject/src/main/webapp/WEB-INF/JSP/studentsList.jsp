@@ -18,7 +18,8 @@
                             <tr class="spaceRow"></tr>
                             <tr>
                                 <td class="fieldLeftNameColStyle">
-                                    <input type="submit" class="veryWideButton" value="Modify existing student" name="modStudent">
+                                    <%--<input type="submit" class="veryWideButton" value="Modify existing student" name="modStudent" onclick="location.href='/${role}/stud_modify'">--%>
+                                    <input type="submit" class="veryWideButton" value="Modify existing student" name="modStudent" onclick="bulkOperation('modify', '/${role}/stud_modify')">
                                 </td>
                                 <td class="fieldLeftNameColStyle">
                                     <input type="submit" class="mediumButton" value="Delete student" name="delStudent" onclick="bulkOperation('delete', '/${role}/stud_list')">

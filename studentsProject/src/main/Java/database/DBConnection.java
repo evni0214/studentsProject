@@ -24,6 +24,8 @@ public class DBConnection {
     private static PreparedStatement selectAllRoles;
     private static PreparedStatement validateUser;
     private static PreparedStatement validateRole;
+    private static PreparedStatement selectStudentById;
+    private static PreparedStatement updateStudent;
 
     public DBConnection(String DB_URL) {
         try {
@@ -153,14 +155,21 @@ public class DBConnection {
 
     public void deleteStudents(String[] studentIDs) {
         StringBuffer query = new StringBuffer("update students set status = 0 where student_id IN (");
-        for(String currID : studentIDs) {
+        int idCount = studentIDs.length;
+
+        for(int i = 1; i <= idCount; i++) {
             query.append("?,");
         }
+
         query.delete(query.length() - 1, query.length());
         query.append(");");
-
         try {
             insertSemesterDisciplines = conn.prepareStatement(query.toString());
+            idCount = 1;
+            for(String currID : studentIDs) {
+                insertSemesterDisciplines.setString(idCount, currID);
+                idCount++;
+            }
             insertSemesterDisciplines.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -218,6 +227,39 @@ public class DBConnection {
         return result;
     }
 
+    public Student selectStudentById(String student_id) {
+        rs = null;
+        Student student = new Student();
+
+        try {
+            selectStudentById.setString(1, student_id);
+            rs = selectStudentById.executeQuery();
+            while(rs.next()) {
+                student.setFirstName(rs.getString("first_name"));
+                student.setLastName(rs.getString("last_name"));
+                student.setGroupId(rs.getString("group_id"));
+                student.setStartDate(rs.getDate("start_date"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return student;
+    }
+
+    public void updateStudent(Student student) {
+        try {
+            updateStudent.setString(1, student.getFirstName());
+            updateStudent.setString(2, student.getLastName());
+            updateStudent.setString(3, student.getGroupId());
+            updateStudent.setDate(4, student.getStartDate());
+            updateStudent.setLong(5, student.getStudentId());
+            updateStudent.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void loadPreparedStatements(){
         try {
             selectAllStudents = conn.prepareStatement("select * from students where status = 1;");
@@ -229,6 +271,8 @@ public class DBConnection {
             selectAllRoles = conn.prepareStatement("select * from roles;");
             validateUser = conn.prepareStatement("select * from users where username = ? and password = ?;");
             validateRole = conn.prepareStatement("select * from user_roles where username = ? and role_id = (select role_id from roles where name = ?);");
+            selectStudentById = conn.prepareStatement("select * from students where student_id = ?");
+            updateStudent = conn.prepareStatement("update students set first_name = ?, last_name = ?, group_id = ?, start_date = ? where student_id = ?;");
         } catch (SQLException e) {
             e.printStackTrace();
         }

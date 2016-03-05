@@ -19,23 +19,24 @@ public class LoginFilter implements Filter {
         String currentRole = (String)httpServletRequest.getSession().getAttribute("role");
         String currentPage = httpServletRequest.getRequestURI();
 
-        if(currentRole == null && !currentPage.equals("/login")) {
-            httpServletResponse.sendRedirect("/login");
-            System.out.println("User is not logged in.");
-            return;
-        } else {
-            if(!(currentRole == null)) {
-                currentRole = currentRole.toLowerCase();
-
-                if(currentPage.startsWith("/administrator")) {
-                    if(!currentRole.equals("administrator")) {
-                        httpServletResponse.sendRedirect("/page_not_found");
-                        return;
-                    }
-                }
-
-                System.out.println("User is logged as " + currentRole);
+        if(currentRole == null) {
+//            css styles cannot be imported here
+            if(currentPage.equals("/login") || currentPage.endsWith(".css")) {
+                chain.doFilter(httpServletRequest, httpServletResponse);
+            } else {
+                httpServletResponse.sendRedirect("/login");
+                return;
             }
+        } else {
+            currentRole = currentRole.toLowerCase();
+
+            if(currentPage.startsWith("/administrator")) {
+                if(!currentRole.equals("administrator")) {
+                    httpServletResponse.sendRedirect("/page_not_found");
+                    return;
+                }
+            }
+
             chain.doFilter(httpServletRequest, httpServletResponse);
         }
     }

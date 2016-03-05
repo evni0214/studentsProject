@@ -105,4 +105,18 @@ public class DataService {
         return result;
     }
 
+    public Student selectStudentById(String student_id) {
+        DBConnection conn = connectionPool.remove(0);
+        Student result = conn.selectStudentById(student_id);
+        connectionPool.add(conn);
+
+        return result;
+    }
+
+    public void updateStudent(Student student) {
+        DBConnection conn = connectionPool.remove(0);
+        conn.updateStudent(student);
+        connectionPool.add(conn);
+    }
+
 }

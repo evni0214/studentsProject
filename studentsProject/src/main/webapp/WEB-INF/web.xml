@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://java.sun.com/xml/ns/javaee"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID"
-         version="2.5">
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID"
+         version="3.0">
 
   <display-name>Archetype Created Web Application</display-name>
     
@@ -55,10 +55,6 @@
         <servlet-class>controllers.PageNotFoundController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>PageNotFound</servlet-name>
-        <url-pattern>/page_not_found</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/student/page_not_found</url-pattern>
     </servlet-mapping>
@@ -71,10 +67,6 @@
         <servlet-name>HomeController</servlet-name>
         <servlet-class>controllers.HomeController</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>HomeController</servlet-name>
-        <url-pattern>/home</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/student/home</url-pattern>
@@ -90,10 +82,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>StudentsListController</servlet-name>
-        <url-pattern>/stud_list</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>StudentsListController</servlet-name>
         <url-pattern>/student/stud_list</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -105,10 +93,6 @@
         <servlet-name>DisciplinesListController</servlet-name>
         <servlet-class>controllers.DisciplinesListController</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>DisciplinesListController</servlet-name>
-        <url-pattern>/disc_list</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DisciplinesListController</servlet-name>
         <url-pattern>/student/disc_list</url-pattern>
@@ -124,10 +108,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>SemestersListController</servlet-name>
-        <url-pattern>/sem_list</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SemestersListController</servlet-name>
         <url-pattern>/student/sem_list</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -139,10 +119,6 @@
         <servlet-name>MarksShowingController</servlet-name>
         <servlet-class>controllers.MarksShowingController</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>MarksShowingController</servlet-name>
-        <url-pattern>/mark_list</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MarksShowingController</servlet-name>
         <url-pattern>/student/mark_list</url-pattern>
@@ -158,10 +134,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>DisciplinesCreatingController</servlet-name>
-        <url-pattern>/disc_create</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DisciplinesCreatingController</servlet-name>
         <url-pattern>/student/disc_create</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -173,10 +145,6 @@
         <servlet-name>StudentsCreatingController</servlet-name>
         <servlet-class>controllers.StudentsCreatingController</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>StudentsCreatingController</servlet-name>
-        <url-pattern>/stud_create</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StudentsCreatingController</servlet-name>
         <url-pattern>/student/stud_create</url-pattern>
@@ -192,15 +160,24 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>SemestersCreatingController</servlet-name>
-        <url-pattern>/sem_create</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SemestersCreatingController</servlet-name>
         <url-pattern>/student/sem_create</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SemestersCreatingController</servlet-name>
         <url-pattern>/administrator/sem_create</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentsModifyingController</servlet-name>
+        <servlet-class>controllers.StudentsModifyingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentsModifyingController</servlet-name>
+        <url-pattern>/student/stud_modify</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentsModifyingController</servlet-name>
+        <url-pattern>/administrator/stud_modify</url-pattern>
     </servlet-mapping>
 
 </web-app>

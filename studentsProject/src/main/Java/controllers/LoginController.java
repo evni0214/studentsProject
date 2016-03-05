@@ -34,23 +34,18 @@ public class LoginController extends HttpServlet {
         String role = req.getParameter("selectRole");
 
         Boolean loginIsValidated = service.validateUser(login, password);
-        System.out.println("===========================================");
         if(loginIsValidated) {
-            System.out.println("User is validated successfully.");
             Boolean roleIsValidated = service.validateRole(login, role);
 
             if(roleIsValidated) {
-                System.out.println("Role is validated successfully.");
                 req.getSession().setAttribute("role", role.toLowerCase());
                 resp.sendRedirect("/" + role.toLowerCase() + "/home");
                 return;
             } else {
-                System.out.println("Role validation is failed.");
                 req.setAttribute("validation", "failed");
                 req.setAttribute("errorCase", "roleNotFound");
             }
         } else {
-            System.out.println("User validation is failed.");
             req.setAttribute("validation", "failed");
             req.setAttribute("errorCase", "userNotFound");
         }
