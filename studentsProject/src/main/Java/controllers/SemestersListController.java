@@ -16,7 +16,9 @@ public class SemestersListController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         DataService service = new DataService();
         List<Semester> semesterList = service.selectAllSemesters();
+        Semester currentSemester = semesterList.get(0);
         req.setAttribute("semesterList", semesterList);
+        req.setAttribute("currentSemester", semesterList);
         req.setAttribute("titleAttribute", "List of semesters");
         req.setAttribute("currentPage", "semestersList.jsp");
         req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);

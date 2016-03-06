@@ -29,10 +29,8 @@ public class StudentsListController extends HttpServlet {
 
         service.deleteStudents(parsedIDs);
 
-        List<Student> students = service.selectAllStudents();
-        req.setAttribute("students", students);
-        req.setAttribute("currentPage", "studentsList.jsp");
-        req.setAttribute("titleAttribute", "List of students");
-        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
+        String currentRole = (String)req.getSession().getAttribute("role");
+        resp.sendRedirect("/" + currentRole + "/stud_list");
+        return;
     }
 }

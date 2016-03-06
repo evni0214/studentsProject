@@ -42,10 +42,8 @@ public class SemestersCreatingController extends HttpServlet {
         service.insertSemester(semester);
         service.insertSemesterDisciplines(semester);
 
-        disciplineList = service.selectAllDisciplines();
-        req.setAttribute("discList", disciplineList);
-        req.setAttribute("titleAttribute", "Create new semester");
-        req.setAttribute("currentPage", "semestersCreating.jsp");
-        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
+        String currentRole = (String)req.getSession().getAttribute("role");
+        resp.sendRedirect("/" + currentRole + "/sem_create");
+        return;
     }
 }

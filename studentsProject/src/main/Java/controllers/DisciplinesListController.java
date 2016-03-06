@@ -23,4 +23,16 @@ public class DisciplinesListController extends HttpServlet {
         req.setAttribute("currentPage", "disciplinesList.jsp");
         req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String[] setOfIDs = req.getParameter("ids").split(",");
+        DataService service = new DataService();
+
+        service.deleteDisciplines(setOfIDs);
+
+        String currentRole = (String)req.getSession().getAttribute("role");
+        resp.sendRedirect("/" + currentRole + "/disc_list");
+        return;
+    }
 }

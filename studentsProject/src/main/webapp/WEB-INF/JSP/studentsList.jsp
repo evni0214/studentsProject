@@ -18,7 +18,6 @@
                             <tr class="spaceRow"></tr>
                             <tr>
                                 <td class="fieldLeftNameColStyle">
-                                    <%--<input type="submit" class="veryWideButton" value="Modify existing student" name="modStudent" onclick="location.href='/${role}/stud_modify'">--%>
                                     <input type="submit" class="veryWideButton" value="Modify existing student" name="modStudent" onclick="bulkOperation('modify', '/${role}/stud_modify')">
                                 </td>
                                 <td class="fieldLeftNameColStyle">
@@ -39,8 +38,8 @@
                             <c:forEach items="${students}" var="st">
                                 <tr>
                                     <td class="checkBoxColumn"> <input type="checkbox" name="1" id="${st.studentId}"> </td>
-                                    <td> ${st.firstName} </td>
                                     <td> ${st.lastName} </td>
+                                    <td> ${st.firstName} </td>
                                     <td> ${st.groupId} </td>
                                     <td>
                                         <fmt:formatDate value="${st.startDate}" pattern="dd/MM/YYYY"></fmt:formatDate>

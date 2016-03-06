@@ -25,8 +25,9 @@ public class DisciplinesCreatingController extends HttpServlet {
         Discipline discipline = new Discipline(req.getParameter("disciplineName"));
         DataService service = new DataService();
         service.insertDiscipline(discipline);
-        req.setAttribute("titleAttribute", "Create new discipline");
-        req.setAttribute("currentPage", "disciplinesCreating.jsp");
-        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
+
+        String currentRole = (String)req.getSession().getAttribute("role");
+        resp.sendRedirect("/" + currentRole + "/disc_create");
+        return;
     }
 }

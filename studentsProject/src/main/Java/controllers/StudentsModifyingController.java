@@ -13,7 +13,6 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 /**
  * Created by Evgeny on 05.03.2016.
@@ -39,9 +38,11 @@ public class StudentsModifyingController extends HttpServlet {
             req.setAttribute("currentPage", "studentsModifying.jsp");
 
             req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
+        } else {
+            String currentRole = (String)req.getSession().getAttribute("role");
+            resp.sendRedirect("/" + currentRole + "/stud_list");
+            return;
         }
-        String currentRole = (String)req.getSession().getAttribute("role");
-        resp.sendRedirect("/" + currentRole +"/stud_list");
     }
 
     @Override
@@ -66,5 +67,6 @@ public class StudentsModifyingController extends HttpServlet {
 
         String currentRole = (String)req.getSession().getAttribute("role");
         resp.sendRedirect("/" + currentRole + "/stud_list");
+        return;
     }
 }

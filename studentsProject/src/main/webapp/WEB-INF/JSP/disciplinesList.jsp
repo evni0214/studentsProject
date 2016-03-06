@@ -21,9 +21,9 @@
                             <c:forEach items="${disciplineList}" var="ds">
                                 <tr class="tableTextStyle">
                                     <td class="checkBoxColumn">
-                                        <input type="checkbox" name="1">
+                                        <input type="checkbox" name="disciplineId" id="${ds.disciplineId}">
                                     </td>
-                                    <td>${ds.disciplineName}</td>
+                                    <td>${ds.name}</td>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -31,10 +31,10 @@
                             <input class="wideButton" type="submit" value="Create new discipline" name="newDiscipline" onclick="location.href='/${role}/disc_create'">
                             <br>
                             <br>
-                            <input class="wideButton" type="submit" value="Modify existing discipline" name="modifyDiscipline">
+                            <input class="wideButton" type="submit" value="Modify existing discipline" name="modifyDiscipline" onclick="bulkOperation('modify', '/${role}/disc_modify')">
                             <br>
                             <br>
-                            <input class="wideButton" type="submit" value="Delete discipline" name="deleteDiscipline">
+                            <input class="wideButton" type="submit" value="Delete discipline" name="deleteDiscipline" onclick="bulkOperation('delete', '/${role}/disc_list')">
                         </div>
                     </div>
                 </div>

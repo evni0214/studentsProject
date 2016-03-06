@@ -55,11 +55,11 @@
         <servlet-class>controllers.PageNotFoundController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>HomeController</servlet-name>
+        <servlet-name>PageNotFound</servlet-name>
         <url-pattern>/student/page_not_found</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>HomeController</servlet-name>
+        <servlet-name>PageNotFound</servlet-name>
         <url-pattern>/administrator/page_not_found</url-pattern>
     </servlet-mapping>
 
@@ -178,6 +178,19 @@
     <servlet-mapping>
         <servlet-name>StudentsModifyingController</servlet-name>
         <url-pattern>/administrator/stud_modify</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DisciplinesModifyingController</servlet-name>
+        <servlet-class>controllers.DisciplinesModifyingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisciplinesModifyingController</servlet-name>
+        <url-pattern>/student/disc_modify</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisciplinesModifyingController</servlet-name>
+        <url-pattern>/administrator/disc_modify</url-pattern>
     </servlet-mapping>
 
 </web-app>

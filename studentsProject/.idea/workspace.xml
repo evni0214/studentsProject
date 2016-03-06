@@ -44,43 +44,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="template.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/template.jsp">
+      <file leaf-file-name="SemestersListController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/SemestersListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.269231">
-              <caret line="57" column="46" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="disciplinesList.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/disciplinesList.jsp">
+      <file leaf-file-name="semestersList.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/semestersList.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.1153846">
-              <caret line="23" column="71" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="71" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudentsModifyingController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/StudentsModifyingController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="179" column="47" selection-start-line="179" selection-start-column="21" selection-end-line="179" selection-end-column="47" />
+            <state vertical-scroll-proportion="-23.115385">
+              <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -90,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/Java/database/DataService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="107" column="19" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="19" />
+              <caret line="141" column="38" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -100,29 +78,27 @@
         <entry file="file://$PROJECT_DIR$/src/main/Java/database/DBConnection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="273" column="63" selection-start-line="273" selection-start-column="63" selection-end-line="273" selection-end-column="63" />
+              <caret line="331" column="55" selection-start-line="331" selection-start-column="11" selection-end-line="331" selection-end-column="55" />
               <folding>
-                <element signature="e#1426#1435#0" expanded="true" />
-                <element signature="e#2342#2354#0" expanded="true" />
-                <element signature="e#2873#2883#0" expanded="true" />
-                <marker date="1457209410508" expanded="true" signature="8410:8449" placeholder="select * fro..students..." />
-                <marker date="1457209410508" expanded="true" signature="8512:8537" placeholder="select * fro..disciplines..." />
-                <marker date="1457209410508" expanded="true" signature="8598:8633" placeholder="select semes..semesters..." />
-                <marker date="1457209410508" expanded="true" signature="8689:8785" placeholder="insert into ..." />
-                <marker date="1457209410508" expanded="true" signature="8844:8894" placeholder="insert into ..." />
-                <marker date="1457209410508" expanded="true" signature="8951:9010" placeholder="insert into ..." />
-                <marker date="1457209410508" expanded="true" signature="9067:9086" placeholder="select * fro..roles..." />
-                <marker date="1457209410508" expanded="true" signature="9141:9196" placeholder="select * fro..users..." />
-                <marker date="1457209410508" expanded="true" signature="9251:9351" placeholder="select * fro..user_roles..." />
-                <marker date="1457209410508" expanded="true" signature="9310:9350" placeholder="select role_..roles..." />
-                <marker date="1457209410508" expanded="true" signature="9411:9433" placeholder="select * fro..students..." />
-                <marker date="1457209410508" expanded="true" signature="9411:9454" placeholder="select * fro..students..." />
-                <marker date="1457209410508" expanded="true" signature="9509:9524" placeholder="update stude..." />
-                <marker date="1457209410508" expanded="true" signature="9509:9528" placeholder="update stude..." />
-                <marker date="1457209410508" expanded="true" signature="9509:9572" placeholder="update stude..." />
-                <marker date="1457209410508" expanded="true" signature="9509:9588" placeholder="update stude..." />
-                <marker date="1457209410508" expanded="true" signature="9509:9594" placeholder="update stude..." />
-                <marker date="1457209410508" expanded="true" signature="9509:9609" placeholder="update stude..." />
+                <element signature="e#1704#1713#0" expanded="true" />
+                <element signature="e#2657#2669#0" expanded="true" />
+                <element signature="e#3275#3285#0" expanded="true" />
+                <marker date="1457263005791" expanded="true" signature="11921:11960" placeholder="select * fro..students..." />
+                <marker date="1457263005791" expanded="true" signature="12023:12048" placeholder="select * fro..disciplines..." />
+                <marker date="1457263005791" expanded="true" signature="12109:12132" placeholder="select semes..semesters..." />
+                <marker date="1457263005791" expanded="true" signature="12188:12284" placeholder="insert into ..." />
+                <marker date="1457263005791" expanded="true" signature="12343:12382" placeholder="insert into ..." />
+                <marker date="1457263005791" expanded="true" signature="12439:12489" placeholder="insert into ..." />
+                <marker date="1457263005791" expanded="true" signature="12546:12565" placeholder="select * fro..roles..." />
+                <marker date="1457263005791" expanded="true" signature="12620:12675" placeholder="select * fro..users..." />
+                <marker date="1457263005791" expanded="true" signature="12730:12830" placeholder="select * fro..user_roles..." />
+                <marker date="1457263005791" expanded="true" signature="12789:12829" placeholder="select role_..roles..." />
+                <marker date="1457263005791" expanded="true" signature="12890:12933" placeholder="select * fro..students..." />
+                <marker date="1457263005791" expanded="true" signature="12989:13089" placeholder="update stude..." />
+                <marker date="1457263005791" expanded="true" signature="13152:13201" placeholder="select * fro..disciplines..." />
+                <marker date="1457263005791" expanded="true" signature="13260:13306" placeholder="update disci..." />
+                <marker date="1457263005791" expanded="true" signature="13367:13396" placeholder="select * fro..semesters..." />
+                <marker date="1457263005791" expanded="true" signature="13367:13412" placeholder="select * fro..semesters..." />
               </folding>
             </state>
           </provider>
@@ -132,7 +108,7 @@
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e85536f3-7600-463c-b07c-bb2603fc2147/console.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.43342775">
-              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -145,8 +121,8 @@
       <list>
         <option value="JavaScript File" />
         <option value="Html5" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -158,7 +134,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/Java/main.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2b899fbb-f24a-4219-af07-1be993942cce/console_1.sql" />
         <option value="$PROJECT_DIR$/src/main/Java/QueryInt.java" />
         <option value="$PROJECT_DIR$/src/main/Java/QueryTest.java" />
@@ -170,25 +145,15 @@
         <option value="$PROJECT_DIR$/src/main/Java/listeners/ContextInitListener.java" />
         <option value="$PROJECT_DIR$/src/main/Java/controllers/MarksShowingController.java" />
         <option value="$PROJECT_DIR$/src/main/Java/entity/Student.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/entity/Discipline.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/entity/Semester.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/main.iml" />
         <option value="$PROJECT_DIR$/ROOT.iml" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/students.js" />
-        <option value="$PROJECT_DIR$/src/main/Java/controllers/SemestersListController.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/controllers/DisciplinesListController.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/controllers/DisciplinesCreatingController.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/controllers/SemestersCreatingController.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/controllers/StudentsListController.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/filters/EncodingFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/controllers/StudentsCreatingController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" />
         <option value="$PROJECT_DIR$/src/main/Java/controllers/PageNotFoundController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/pageNotFound.jsp" />
         <option value="$PROJECT_DIR$/src/main/Java/controllers/LogoutController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/disciplinesCreating.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/disciplinesList.jsp" />
         <option value="$PROJECT_DIR$/src/main/Java/controllers/HomeController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/marksShowing.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/home.jsp" />
@@ -198,15 +163,27 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/loginPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/qwe.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/wqqwq.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/studentsList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/template.jsp" />
-        <option value="$PROJECT_DIR$/src/main/Java/database/DataService.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/database/DBConnection.java" />
         <option value="$PROJECT_DIR$/src/main/Java/controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/Java/filters/LoginFilter.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/studentsModifying.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/template.jsp" />
+        <option value="$PROJECT_DIR$/src/main/Java/filters/EncodingFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/entity/Discipline.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/disciplinesModifying.jsp" />
+        <option value="$PROJECT_DIR$/src/main/Java/controllers/StudentsListController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/Java/controllers/StudentsModifyingController.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/controllers/DisciplinesCreatingController.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/controllers/SemestersCreatingController.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/controllers/DisciplinesListController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/disciplinesList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/Java/controllers/DisciplinesModifyingController.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/controllers/StudentsCreatingController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/studentsList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/Java/entity/Semester.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/database/DBConnection.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/database/DataService.java" />
+        <option value="$PROJECT_DIR$/src/main/Java/controllers/SemestersListController.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e85536f3-7600-463c-b07c-bb2603fc2147/console.sql" />
       </list>
     </option>
@@ -313,7 +290,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -642,13 +619,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.splitter.proportion" value="0.22015655" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
@@ -963,9 +940,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="Unknown" factoryName="Unknown">
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -1117,12 +1091,13 @@
       <workItem from="1456680604738" duration="1469000" />
       <workItem from="1457157094146" duration="18739000" />
       <workItem from="1457197797495" duration="3243000" />
-      <workItem from="1457201093807" duration="9677000" />
+      <workItem from="1457201093807" duration="17079000" />
+      <workItem from="1457254272163" duration="6949000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142430000" />
+    <option name="totallyTimeSpent" value="156781000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1137,7 +1112,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32952693" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32952693" sideWeight="0.49167928" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1146,9 +1121,9 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42577487" sideWeight="0.49092284" order="2" side_tool="false" content_ui="tabs" x="22" y="245" width="1322" height="238" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5075643" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43066883" sideWeight="0.48865354" order="2" side_tool="false" content_ui="tabs" x="22" y="245" width="1322" height="238" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.50832075" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -1156,7 +1131,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19213313" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22919819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22995462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1193,18 +1168,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e85536f3-7600-463c-b07c-bb2603fc2147/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -1268,20 +1235,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Java/entity/Discipline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50445104">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Java/entity/Semester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68249255">
-          <caret line="36" column="87" selection-start-line="36" selection-start-column="87" selection-end-line="36" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/main.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5964392">
@@ -1311,36 +1264,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/DisciplinesListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/DisciplinesCreatingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1097922">
-          <caret line="29" column="81" selection-start-line="29" selection-start-column="81" selection-end-line="29" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/af10c380/e85536f3-7600-463c-b07c-bb2603fc2147/students..students">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/SemestersCreatingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48825064">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="26" selection-end-column="81" />
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1355,13 +1287,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Java/filters/EncodingFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2910663">
-          <caret line="22" column="74" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="74" />
         </state>
       </provider>
     </entry>
@@ -1400,26 +1325,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/semestersList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.7087913">
-          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/home.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231">
-          <caret line="18" column="65" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61025643">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1427,7 +1336,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0686814">
           <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1435,15 +1343,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="179" column="47" selection-start-line="179" selection-start-column="21" selection-end-line="179" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1451,39 +1350,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.73913044">
           <caret line="16" column="219" selection-start-line="16" selection-start-column="144" selection-end-line="16" selection-end-column="219" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/SemestersListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3580247">
-          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/StudentsListController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46296296">
-          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31790122">
-          <caret line="13" column="75" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/StudentsCreatingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6882716">
-          <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1491,37 +1357,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.1574074">
           <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Java/database/DBConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="273" column="63" selection-start-line="273" selection-start-column="63" selection-end-line="273" selection-end-column="63" />
-          <folding>
-            <element signature="e#1426#1435#0" expanded="true" />
-            <element signature="e#2342#2354#0" expanded="true" />
-            <element signature="e#2873#2883#0" expanded="true" />
-            <marker date="1457209410508" expanded="true" signature="8410:8449" placeholder="select * fro..students..." />
-            <marker date="1457209410508" expanded="true" signature="8512:8537" placeholder="select * fro..disciplines..." />
-            <marker date="1457209410508" expanded="true" signature="8598:8633" placeholder="select semes..semesters..." />
-            <marker date="1457209410508" expanded="true" signature="8689:8785" placeholder="insert into ..." />
-            <marker date="1457209410508" expanded="true" signature="8844:8894" placeholder="insert into ..." />
-            <marker date="1457209410508" expanded="true" signature="8951:9010" placeholder="insert into ..." />
-            <marker date="1457209410508" expanded="true" signature="9067:9086" placeholder="select * fro..roles..." />
-            <marker date="1457209410508" expanded="true" signature="9141:9196" placeholder="select * fro..users..." />
-            <marker date="1457209410508" expanded="true" signature="9251:9351" placeholder="select * fro..user_roles..." />
-            <marker date="1457209410508" expanded="true" signature="9310:9350" placeholder="select role_..roles..." />
-            <marker date="1457209410508" expanded="true" signature="9411:9433" placeholder="select * fro..students..." />
-            <marker date="1457209410508" expanded="true" signature="9411:9454" placeholder="select * fro..students..." />
-            <marker date="1457209410508" expanded="true" signature="9509:9524" placeholder="update stude..." />
-            <marker date="1457209410508" expanded="true" signature="9509:9528" placeholder="update stude..." />
-            <marker date="1457209410508" expanded="true" signature="9509:9572" placeholder="update stude..." />
-            <marker date="1457209410508" expanded="true" signature="9509:9588" placeholder="update stude..." />
-            <marker date="1457209410508" expanded="true" signature="9509:9594" placeholder="update stude..." />
-            <marker date="1457209410508" expanded="true" signature="9509:9609" placeholder="update stude..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1537,16 +1372,182 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/home.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/studentsModifying.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5762712">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/template.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/filters/EncodingFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23987539">
+          <caret line="18" column="65" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/entity/Discipline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7943925">
+          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding>
+            <element signature="e#178#179#0" expanded="true" />
+            <element signature="e#213#214#0" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/StudentsModifyingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
+        <state vertical-scroll-proportion="-0.529595">
+          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/disciplinesModifying.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46101695">
+          <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/DisciplinesCreatingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.788162">
+          <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.872274">
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/SemestersCreatingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9470405">
+          <caret line="46" column="15" selection-start-line="46" selection-start-column="15" selection-end-line="46" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32087228">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/StudentsListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.576324">
+          <caret line="27" column="63" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/DisciplinesModifyingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7040498">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/DisciplinesListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5825545">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/studentsList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56271183">
+          <caret line="40" column="55" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/StudentsCreatingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4766355">
+          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/disciplinesList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.23077">
+          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/semestersList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.115385">
+          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Java/database/DBConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="331" column="55" selection-start-line="331" selection-start-column="11" selection-end-line="331" selection-end-column="55" />
+          <folding>
+            <element signature="e#1704#1713#0" expanded="true" />
+            <element signature="e#2657#2669#0" expanded="true" />
+            <element signature="e#3275#3285#0" expanded="true" />
+            <marker date="1457263005791" expanded="true" signature="11921:11960" placeholder="select * fro..students..." />
+            <marker date="1457263005791" expanded="true" signature="12023:12048" placeholder="select * fro..disciplines..." />
+            <marker date="1457263005791" expanded="true" signature="12109:12132" placeholder="select semes..semesters..." />
+            <marker date="1457263005791" expanded="true" signature="12188:12284" placeholder="insert into ..." />
+            <marker date="1457263005791" expanded="true" signature="12343:12382" placeholder="insert into ..." />
+            <marker date="1457263005791" expanded="true" signature="12439:12489" placeholder="insert into ..." />
+            <marker date="1457263005791" expanded="true" signature="12546:12565" placeholder="select * fro..roles..." />
+            <marker date="1457263005791" expanded="true" signature="12620:12675" placeholder="select * fro..users..." />
+            <marker date="1457263005791" expanded="true" signature="12730:12830" placeholder="select * fro..user_roles..." />
+            <marker date="1457263005791" expanded="true" signature="12789:12829" placeholder="select role_..roles..." />
+            <marker date="1457263005791" expanded="true" signature="12890:12933" placeholder="select * fro..students..." />
+            <marker date="1457263005791" expanded="true" signature="12989:13089" placeholder="update stude..." />
+            <marker date="1457263005791" expanded="true" signature="13152:13201" placeholder="select * fro..disciplines..." />
+            <marker date="1457263005791" expanded="true" signature="13260:13306" placeholder="update disci..." />
+            <marker date="1457263005791" expanded="true" signature="13367:13396" placeholder="select * fro..semesters..." />
+            <marker date="1457263005791" expanded="true" signature="13367:13412" placeholder="select * fro..semesters..." />
           </folding>
         </state>
       </provider>
@@ -1554,39 +1555,23 @@
     <entry file="file://$PROJECT_DIR$/src/main/Java/database/DataService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="19" selection-start-line="107" selection-start-column="19" selection-end-line="107" selection-end-column="19" />
+          <caret line="141" column="38" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/studentsModifying.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/Java/entity/Semester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68456376">
-          <caret line="64" column="86" selection-start-line="64" selection-start-column="86" selection-end-line="64" selection-end-column="86" />
+        <state vertical-scroll-proportion="0.47780678">
+          <caret line="17" column="99" selection-start-line="17" selection-start-column="99" selection-end-line="17" selection-end-column="99" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/studentsList.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/Java/controllers/SemestersListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05704698">
-          <caret line="14" column="145" selection-start-line="14" selection-start-column="131" selection-end-line="14" selection-end-column="145" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/template.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.269231">
-          <caret line="57" column="46" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/JSP/disciplinesList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.1153846">
-          <caret line="23" column="71" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -1594,7 +1579,7 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e85536f3-7600-463c-b07c-bb2603fc2147/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43342775">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
           <folding />
         </state>
       </provider>

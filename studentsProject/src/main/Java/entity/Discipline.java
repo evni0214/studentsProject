@@ -4,21 +4,27 @@ package entity;
  * Created by Evgeny on 06.02.2016.
  */
 public class Discipline {
-    private String disciplineName;
+    private long disciplineId;
+    private String name;
 
-    public Discipline(String disciplineName) {
-        this.disciplineName = disciplineName;
+    public long getDisciplineId() {
+        return disciplineId;
+    }
+
+    public void setDisciplineId(long disciplineId) {
+        this.disciplineId = disciplineId;
+    }
+
+    public Discipline(long disciplineId, String name) {
+        this.disciplineId = disciplineId;
+        this.name = name;
+    }
+
+    public Discipline(String name) {
+        this.name = name;
     }
 
     public Discipline() {
-    }
-
-    public String getDisciplineName() {
-        return disciplineName;
-    }
-
-    public void setDisciplineName(String disciplineName) {
-        this.disciplineName = disciplineName;
     }
 
     @Override
@@ -28,12 +34,23 @@ public class Discipline {
 
         Discipline that = (Discipline) o;
 
-        return !(getDisciplineName() != null ? !getDisciplineName().equals(that.getDisciplineName()) : that.getDisciplineName() != null);
+        if (getDisciplineId() != that.getDisciplineId()) return false;
+        return !(getName() != null ? !getName().equals(that.getName()) : that.getName() != null);
 
     }
 
     @Override
     public int hashCode() {
-        return getDisciplineName() != null ? getDisciplineName().hashCode() : 0;
+        int result = (int) (getDisciplineId() ^ (getDisciplineId() >>> 32));
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        return result;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

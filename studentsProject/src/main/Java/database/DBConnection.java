@@ -26,6 +26,10 @@ public class DBConnection {
     private static PreparedStatement validateRole;
     private static PreparedStatement selectStudentById;
     private static PreparedStatement updateStudent;
+    private static PreparedStatement selectDisciplineById;
+    private static PreparedStatement updateDiscipline;
+    private static PreparedStatement deleteDisciplines;
+    private static PreparedStatement selectSemesterById;
 
     public DBConnection(String DB_URL) {
         try {
@@ -40,6 +44,7 @@ public class DBConnection {
     }
     
     public List<Student> selectAllStudents(){
+//        select * from students where status = 1;
         rs = null;
         List<Student> result = new ArrayList<Student>();
 
@@ -68,6 +73,7 @@ public class DBConnection {
     }
 
     public List<Discipline> selectAllDisciplines() {
+//        select * from disciplines;
         rs = null;
         List<Discipline> result = new ArrayList<Discipline>();
 
@@ -77,7 +83,8 @@ public class DBConnection {
             while(rs.next()) {
                 Discipline discipline = new Discipline();
 
-                discipline.setDisciplineName(rs.getString("discipline_name"));
+                discipline.setDisciplineId(rs.getLong("discipline_id"));
+                discipline.setName(rs.getString("name"));
                 result.add(discipline);
             }
         } catch (SQLException e) {
@@ -88,6 +95,7 @@ public class DBConnection {
     }
 
     public List<Semester> selectAllSemesters() {
+//        select * from semesters;
         rs = null;
         List<Semester> result = new ArrayList<Semester>();
 
@@ -95,8 +103,8 @@ public class DBConnection {
             rs = selectAllSemesters.executeQuery();
             while (rs.next()) {
                 Semester semester = new Semester();
-
-                semester.setSemesterName(rs.getString("semester_name"));
+                semester.setSemesterId(rs.getLong("semester_id"));
+                semester.setName(rs.getString("name"));
                 result.add(semester);
             }
         } catch (SQLException e) {
@@ -107,6 +115,7 @@ public class DBConnection {
     }
 
     public void insertStudent(Student student) {
+//        insert into students(first_name, last_name, group_id, start_date, status) values (?, ?, ?, ?, 1);
         try {
             insertStudent.setString(1, student.getFirstName());
             insertStudent.setString(2, student.getLastName());
@@ -119,8 +128,9 @@ public class DBConnection {
     }
 
     public void insertDiscipline(Discipline discipline) {
+//        insert into disciplines(discipline_name) values(?);
         try {
-            insertDiscipline.setString(1, discipline.getDisciplineName());
+            insertDiscipline.setString(1, discipline.getName());
             insertDiscipline.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -128,8 +138,9 @@ public class DBConnection {
     }
 
     public void insertSemester(Semester semester) {
+//        insert into semesters(semester_name, duration) values(?, ?);
         try {
-            insertSemester.setString(1, semester.getSemesterName());
+            insertSemester.setLong(1, semester.getSemesterId());
             insertSemester.setLong(2, semester.getDuration());
             insertSemester.executeUpdate();
         } catch (SQLException e) {
@@ -138,9 +149,9 @@ public class DBConnection {
     }
 
     public void insertSemesterDisciplines(Semester semester) {
-        StringBuffer query = new StringBuffer("insert into discipline_list(semester_name, discipline_name) values ");
+        StringBuffer query = new StringBuffer("insert into discipline_list(semester_id, discipline_id) values ");
         for(Discipline currSemDisc : semester.getDisciplineList()) {
-            query.append("('" + semester.getSemesterName() + "', '" + currSemDisc.getDisciplineName() + "'), ");
+            query.append("('" + semester.getSemesterId() + "', '" + currSemDisc.getDisciplineId() + "'), ");
         }
         query.delete(query.length() - 2, query.length());
         query.append(";");
@@ -164,19 +175,20 @@ public class DBConnection {
         query.delete(query.length() - 1, query.length());
         query.append(");");
         try {
-            insertSemesterDisciplines = conn.prepareStatement(query.toString());
+            deleteStudents = conn.prepareStatement(query.toString());
             idCount = 1;
             for(String currID : studentIDs) {
-                insertSemesterDisciplines.setString(idCount, currID);
+                deleteStudents.setString(idCount, currID);
                 idCount++;
             }
-            insertSemesterDisciplines.executeUpdate();
+            deleteStudents.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public List<Role> selectAllRoles() {
+//        select * from roles;
         rs = null;
         List<Role> roles = new ArrayList<Role>();
 
@@ -196,6 +208,7 @@ public class DBConnection {
     }
 
     public Boolean validateUser(String username, String password) {
+//        select * from users where username = ? and password = ?;
         rs = null;
         Boolean result = false;
         try {
@@ -212,6 +225,7 @@ public class DBConnection {
     }
 
     public Boolean validateRole(String username, String role) {
+//        select * from user_roles where username = ? and role_id = (select role_id from roles where name = ?);
         rs = null;
         Boolean result = false;
         try {
@@ -228,6 +242,7 @@ public class DBConnection {
     }
 
     public Student selectStudentById(String student_id) {
+//        select * from students where student_id = ?;
         rs = null;
         Student student = new Student();
 
@@ -248,6 +263,7 @@ public class DBConnection {
     }
 
     public void updateStudent(Student student) {
+//        update students set first_name = ?, last_name = ?, group_id = ?, start_date = ? where student_id = ?;
         try {
             updateStudent.setString(1, student.getFirstName());
             updateStudent.setString(2, student.getLastName());
@@ -260,19 +276,94 @@ public class DBConnection {
         }
     }
 
+    public Discipline selectDisciplineById(long disciplineId) {
+//        select * from disciplines where discipline_id = ?;
+        rs = null;
+        Discipline result = new Discipline();
+        try {
+            selectDisciplineById.setLong(1, disciplineId);
+            rs = selectDisciplineById.executeQuery();
+            while (rs.next()) {
+                result.setDisciplineId(rs.getLong("discipline_id"));
+                result.setName(rs.getString("name"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    public void updateDiscipline(Discipline oldName, Discipline newName) {
+//        update disciplines set discipline_name = ? where discipline_name = ?;
+        try {
+            updateDiscipline.setString(1, newName.getName());
+            updateDiscipline.setString(2, oldName.getName());
+            updateDiscipline.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteDisciplines(String[] disciplineIDs) {
+//        delete from disciplines where discipline_id IN (?, ?, ... , ?);
+        StringBuffer query = new StringBuffer("delete from disciplines where discipline_id IN (");
+        int idCount = disciplineIDs.length;
+
+        for(int i = 1; i <= idCount; i++) {
+            query.append("?,");
+        }
+
+        query.delete(query.length() - 1, query.length());
+        query.append(");");
+        try {
+            deleteDisciplines = conn.prepareStatement(query.toString());
+            idCount = 1;
+            for(String currID : disciplineIDs) {
+                deleteDisciplines.setString(idCount, currID);
+                idCount++;
+            }
+            deleteDisciplines.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Semester selectSemesterById(long semesterId) {
+//        select * from semesters where semester_id = ?;
+        rs = null;
+        Semester result = new Semester();
+        try {
+            selectSemesterById.setLong(1, semesterId);
+            rs = selectSemesterById.executeQuery();
+            while (rs.next()) {
+                result.setSemesterId(rs.getLong("semester_id"));
+                result.setName(rs.getString("name"));
+                result.setDuration(rs.getLong("duration"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
     private void loadPreparedStatements(){
         try {
             selectAllStudents = conn.prepareStatement("select * from students where status = 1;");
             selectAllDisciplines = conn.prepareStatement("select * from disciplines;");
-            selectAllSemesters = conn.prepareStatement("select semester_name from semesters;");
+            selectAllSemesters = conn.prepareStatement("select * from semesters;");
             insertStudent = conn.prepareStatement("insert into students(first_name, last_name, group_id, start_date, status) values (?, ?, ?, ?, 1);");
-            insertDiscipline = conn.prepareStatement("insert into disciplines(discipline_name) values(?);");
-            insertSemester = conn.prepareStatement("insert into semesters(semester_name, duration) values(?, ?);");
+            insertDiscipline = conn.prepareStatement("insert into disciplines(name) values(?);");
+            insertSemester = conn.prepareStatement("insert into semesters(name, duration) values(?, ?);");
             selectAllRoles = conn.prepareStatement("select * from roles;");
             validateUser = conn.prepareStatement("select * from users where username = ? and password = ?;");
             validateRole = conn.prepareStatement("select * from user_roles where username = ? and role_id = (select role_id from roles where name = ?);");
-            selectStudentById = conn.prepareStatement("select * from students where student_id = ?");
+            selectStudentById = conn.prepareStatement("select * from students where student_id = ?;");
             updateStudent = conn.prepareStatement("update students set first_name = ?, last_name = ?, group_id = ?, start_date = ? where student_id = ?;");
+            selectDisciplineById = conn.prepareStatement("select * from disciplines where discipline_id = ?;");
+            updateDiscipline = conn.prepareStatement("update disciplines set name = ? where name = ?;");
+            selectSemesterById = conn.prepareStatement("select * from semesters where semester_id = ?;");
         } catch (SQLException e) {
             e.printStackTrace();
         }

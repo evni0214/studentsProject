@@ -31,14 +31,14 @@
             var items = $("input[type=checkbox]:checked");
             var controllerAddress = arguments[1];
             if(items.length == 0) {
-                alert("No students are selected for operation.");
+                alert("No objects are selected for operation.");
                 location.href="";
                 return;
             }
             var operationName = arguments[0];
             if(operationName == 'modify') {
                 if(items.length > 1) {
-                    alert("Too many students are selected for operation.");
+                    alert("Too many objects are selected for operation.");
                     return;
                 } else {
                     var ids = "";

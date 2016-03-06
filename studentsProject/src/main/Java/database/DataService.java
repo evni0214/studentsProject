@@ -119,4 +119,32 @@ public class DataService {
         connectionPool.add(conn);
     }
 
+    public Discipline selectDisciplineById(long disciplineId) {
+        DBConnection conn = connectionPool.remove(0);
+        Discipline result = conn.selectDisciplineById(disciplineId);
+        connectionPool.add(conn);
+
+        return result;
+    }
+
+    public void updateDiscipline(Discipline oldName, Discipline newName) {
+        DBConnection conn = connectionPool.remove(0);
+        conn.updateDiscipline(oldName, newName);
+        connectionPool.add(conn);
+    }
+
+    public void deleteDisciplines(String[] disciplineIDs) {
+        DBConnection conn = connectionPool.remove(0);
+        conn.deleteDisciplines(disciplineIDs);
+        connectionPool.add(conn);
+    }
+
+    public Semester selectSemesterById(long semesterId) {
+        DBConnection conn = connectionPool.remove(0);
+        Semester result = conn.selectSemesterById(semesterId);
+        connectionPool.add(conn);
+
+        return result;
+    }
+
 }

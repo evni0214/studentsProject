@@ -39,8 +39,9 @@ public class StudentsCreatingController extends HttpServlet {
                 startDate);
         DataService service = new DataService();
         service.insertStudent(student);
-        req.setAttribute("currentPage", "studentsCreating.jsp");
-        req.setAttribute("titleAttribute", "Create new student");
-        req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
+
+        String currentRole = (String)req.getSession().getAttribute("role");
+        resp.sendRedirect("/" + currentRole + "/stud_create");
+        return;
     }
 }

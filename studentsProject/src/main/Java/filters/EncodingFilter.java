@@ -20,8 +20,6 @@ public class EncodingFilter implements Filter {
         httpServletRequest.setCharacterEncoding("UTF-8");
         httpServletResponse.setCharacterEncoding("UTF-8");
 
-//        httpServletRequest.getSession().setAttribute("role", "student");
-
         chain.doFilter(httpServletRequest, httpServletResponse);
     }
 
