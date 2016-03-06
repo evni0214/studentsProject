@@ -24,6 +24,11 @@ public class Discipline {
         this.name = name;
     }
 
+
+    public Discipline(long disciplineId) {
+        this.disciplineId = disciplineId;
+    }
+
     public Discipline() {
     }
 

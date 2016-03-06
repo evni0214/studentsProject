@@ -9,16 +9,16 @@
                     </div>
                     <br>
                     <div class="content">
-                        <form class="semesterListSelectForm">
+                        <form class="semesterListSelectForm" action="/${role}/sem_list" method="get" name="selectSemester" id="selectSemester"">
                             <table width="400px">
                                 <tr>
                                     <td class="fieldLeftNameColStyle">
                                         <a> Select semester </a>
                                     </td>
                                     <td class="fieldColStyle">
-                                        <select class="selectStyle" name="listOfSemesters">
+                                        <select class="selectStyle" name="listOfSemesters" id="listOfSemesters">
                                             <c:forEach items="${semesterList}" var="sem">
-                                                <option> ${sem.semesterName} </option>
+                                                <option value="${sem.semesterId}"> ${sem.name} </option>
                                             </c:forEach>
                                         </select>
                                     </td>
@@ -29,13 +29,13 @@
                             </table>
                         </form>
                         <br>
-                        <a class="textStyle" style="float: left;"> Duration of semester: "24 weeks" </a>
+                        <a class="textStyle" style="float: left;"> Duration of semester: ${currSemDur} weeks. </a>
                         <br>
                         <br>
                         <br>
                         <br>
                         <div>
-                            <a class="textStyle" style="float: left;"> List of semesters' disciplines: </a>
+                            <a class="textStyle" style="float: left;"> List of "${currSemName}" disciplines: </a>
                         </div>
                         <br>
                         <br>
@@ -43,9 +43,11 @@
                             <tr class="firstTableRow">
                                 <td> Name of discipline </td>
                             </tr>
-                            <tr class="tableTextStyle">
-                                <td> Информатика </td>
-                            </tr>
+                            <c:forEach items="${currSemDisc}" var="currDisc">
+                                <tr class="tableTextStyle">
+                                    <td> ${currDisc.name} </td>
+                                </tr>
+                            </c:forEach>
                         </table>
                         <div class="semesterListButtonForm">
                             <input class="wideButton" type="submit" value="Create new semester" name="newSemester" onclick="location.href='/${role}/sem_create'">

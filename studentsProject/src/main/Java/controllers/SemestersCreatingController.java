@@ -32,14 +32,15 @@ public class SemestersCreatingController extends HttpServlet {
         List<Discipline> disciplineList = new ArrayList<Discipline>();
         String[] disciplinesStringList = req.getParameterValues("disciplineList");
         for(String currDisc : disciplinesStringList) {
-            Discipline discipline = new Discipline(currDisc);
+            Discipline discipline = new Discipline(Long.parseLong(currDisc));
             disciplineList.add(discipline);
         }
         Semester semester = new Semester(req.getParameter("semesterName"),
                 Long.parseLong(req.getParameter("semesterDuration")),
                 disciplineList);
         DataService service = new DataService();
-        service.insertSemester(semester);
+        semester.setSemesterId(service.insertSemester(semester));
+
         service.insertSemesterDisciplines(semester);
 
         String currentRole = (String)req.getSession().getAttribute("role");

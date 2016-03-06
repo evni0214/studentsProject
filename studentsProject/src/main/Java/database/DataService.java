@@ -63,10 +63,12 @@ public class DataService {
         connectionPool.add(conn);
     }
 
-    public void insertSemester(Semester semester) {
+    public long insertSemester(Semester semester) {
         DBConnection conn = connectionPool.remove(0);
-        conn.insertSemester(semester);
+        long result = conn.insertSemester(semester);
         connectionPool.add(conn);
+
+        return result;
     }
 
     public void insertSemesterDisciplines(Semester semester) {

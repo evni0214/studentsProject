@@ -8,31 +8,31 @@
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <schema name="" catalog="students"/>
     <table name="discipline_list" schema="" catalog="students" type="TABLE">
+      <column name="semester_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="discipline_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="pair_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="semester_name" sqlType="VARCHAR" precision="55" scale="0" nullable="false" jdbcType="12"/>
-      <column name="discipline_name" sqlType="VARCHAR" precision="55" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="semester_name,discipline_name"/>
-      <foreign-key name="discipline_fk" columns="discipline_name" ref-table="disciplines" ref-schema="" ref-catalog="students" ref-columns="discipline_name" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="semester_fk" columns="semester_name" ref-table="semesters" ref-schema="" ref-catalog="students" ref-columns="semester_name" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="pair_fk" table="marks" schema="" catalog="students" columns="pair_id"/>
+      <primary-key name="PRIMARY" columns="semester_id,discipline_id"/>
+      <foreign-key name="discipline_id_fk" columns="discipline_id" ref-table="disciplines" ref-schema="" ref-catalog="students" ref-columns="discipline_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="semester_id_fk" columns="semester_id" ref-table="semesters" ref-schema="" ref-catalog="students" ref-columns="semester_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="pair_id_fk" table="marks" schema="" catalog="students" columns="pair_id"/>
       <index name="pair_id_UNIQUE" unique="true" columns="pair_id"/>
-      <index name="discipline_fk_idx" unique="false" columns="discipline_name"/>
-      <index name="smester_fk_idx" unique="false" columns="semester_name"/>
+      <index name="discipline_id_fk_idx" unique="false" columns="discipline_id"/>
     </table>
     <table name="disciplines" schema="" catalog="students" type="TABLE">
-      <column name="discipline_name" sqlType="VARCHAR" precision="55" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="discipline_name"/>
-      <exported-key name="discipline_fk" table="discipline_list" schema="" catalog="students" columns="discipline_name"/>
-      <index name="discipline_name_UNIQUE" unique="true" columns="discipline_name"/>
+      <column name="discipline_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="discipline_id"/>
+      <exported-key name="discipline_id_fk" table="discipline_list" schema="" catalog="students" columns="discipline_id"/>
+      <index name="name_UNIQUE" unique="true" columns="name"/>
     </table>
     <table name="marks" schema="" catalog="students" type="TABLE">
       <column name="student_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="pair_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="mark" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
       <primary-key name="PRIMARY" columns="student_id,pair_id"/>
-      <foreign-key name="pair_fk" columns="pair_id" ref-table="discipline_list" ref-schema="" ref-catalog="students" ref-columns="pair_id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="student_fk" columns="student_id" ref-table="students" ref-schema="" ref-catalog="students" ref-columns="student_id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="pair_fk_idx" unique="false" columns="pair_id"/>
+      <foreign-key name="pair_id_fk" columns="pair_id" ref-table="discipline_list" ref-schema="" ref-catalog="students" ref-columns="pair_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="student_id_fk" columns="student_id" ref-table="students" ref-schema="" ref-catalog="students" ref-columns="student_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="pair_id_fk_idx" unique="false" columns="pair_id"/>
     </table>
     <table name="roles" schema="" catalog="students" type="TABLE">
       <column name="role_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
@@ -42,11 +42,12 @@
       <index name="role_id_UNIQUE" unique="true" columns="role_id"/>
     </table>
     <table name="semesters" schema="" catalog="students" type="TABLE">
-      <column name="semester_name" sqlType="VARCHAR" precision="55" scale="0" nullable="false" jdbcType="12"/>
+      <column name="semester_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="55" scale="0" nullable="false" jdbcType="12"/>
       <column name="duration" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="semester_name"/>
-      <exported-key name="semester_fk" table="discipline_list" schema="" catalog="students" columns="semester_name"/>
-      <index name="Semester_name_UNIQUE" unique="true" columns="semester_name"/>
+      <primary-key name="PRIMARY" columns="semester_id"/>
+      <exported-key name="semester_id_fk" table="discipline_list" schema="" catalog="students" columns="semester_id"/>
+      <index name="Semester_name_UNIQUE" unique="true" columns="name"/>
     </table>
     <table name="students" schema="" catalog="students" type="TABLE">
       <column name="student_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
@@ -56,15 +57,15 @@
       <column name="start_date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
       <column name="status" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
       <primary-key name="PRIMARY" columns="student_id"/>
-      <exported-key name="student_fk" table="marks" schema="" catalog="students" columns="student_id"/>
+      <exported-key name="student_id_fk" table="marks" schema="" catalog="students" columns="student_id"/>
       <index name="student_id_UNIQUE" unique="true" columns="student_id"/>
     </table>
     <table name="user_roles" schema="" catalog="students" type="TABLE">
       <column name="username" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
       <column name="role_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="username,role_id"/>
-      <foreign-key name="role_fk" columns="role_id" ref-table="roles" ref-schema="" ref-catalog="students" ref-columns="role_id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="user_fk" columns="username" ref-table="users" ref-schema="" ref-catalog="students" ref-columns="username" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="role_fk" columns="role_id" ref-table="roles" ref-schema="" ref-catalog="students" ref-columns="role_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="user_fk" columns="username" ref-table="users" ref-schema="" ref-catalog="students" ref-columns="username" update-rule="0" delete-rule="0" deferrability="2"/>
       <index name="role_fk_idx" unique="false" columns="role_id"/>
     </table>
     <table name="users" schema="" catalog="students" type="TABLE">

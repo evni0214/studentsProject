@@ -13,14 +13,14 @@
                         </div>
                         <br>
                         <br>
-                        <form class="wideFormStyle" method="post">
+                        <form class="wideFormStyle" method="post" action="/${role}/sem_create" onsubmit="validateFields('semesterName', 'semesterDuration', 'disciplineList')">
                             <table width="350px">
                                 <tr>
                                     <td class="fieldLeftNameColStyle">
                                         <a> Semester name </a>
                                     </td>
                                     <td class="fieldColStyle">
-                                        <input type="text" name="semesterName">
+                                        <input type="text" name="semesterName" id="semesterName">
                                     </td>
                                 </tr>
                                 <tr class="spaceRow"></tr>
@@ -29,7 +29,7 @@
                                         <a> Duration (weeks) </a>
                                     </td>
                                     <td class="fieldColStyle">
-                                        <input type="text" name="semesterDuration">
+                                        <input type="text" name="semesterDuration" id="semesterDuration">
                                     </td>
                                 </tr>
                                 <tr class="spaceRow"></tr>
@@ -38,9 +38,9 @@
                                         <a> Included disciplines </a>
                                     </td>
                                     <td class="fieldColStyle">
-                                        <select class="multiSelectStyle" multiple name="disciplineList">
+                                        <select class="multiSelectStyle" multiple name="disciplineList" id="disciplineList">
                                             <c:forEach items="${discList}" var="currDisc">
-                                                <option> ${currDisc.disciplineName} </option>
+                                                <option value="${currDisc.disciplineId}"> ${currDisc.name} </option>
                                             </c:forEach>
                                         </select>
                                     </td>

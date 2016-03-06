@@ -19,6 +19,7 @@ public class DBConnection {
     private static PreparedStatement insertStudent;
     private static PreparedStatement insertDiscipline;
     private static PreparedStatement insertSemester;
+    private static PreparedStatement selectSemesterIdByName;
     private static PreparedStatement insertSemesterDisciplines;
     private static PreparedStatement deleteStudents;
     private static PreparedStatement selectAllRoles;
@@ -137,15 +138,26 @@ public class DBConnection {
         }
     }
 
-    public void insertSemester(Semester semester) {
-//        insert into semesters(semester_name, duration) values(?, ?);
+    public long insertSemester(Semester semester) {
+//        insert into semesters(name, duration) values(?, ?);
+//        select semester_id from semesters where name = ?;
+        rs = null;
+        long result = 0;
+
         try {
-            insertSemester.setLong(1, semester.getSemesterId());
+            insertSemester.setString(1, semester.getName());
             insertSemester.setLong(2, semester.getDuration());
             insertSemester.executeUpdate();
+
+            selectSemesterIdByName.setString(1, semester.getName());
+            rs = selectSemesterIdByName.executeQuery();
+            rs.next();
+            result = rs.getLong("semester_id");
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return result;
     }
 
     public void insertSemesterDisciplines(Semester semester) {
@@ -330,17 +342,33 @@ public class DBConnection {
     }
 
     public Semester selectSemesterById(long semesterId) {
-//        select * from semesters where semester_id = ?;
+//        select s.semester_id,
+//                s.name semester_name,
+//                s.duration,
+//                d.discipline_id,
+//                d.name discipline_name
+//        from discipline_list dl join semesters s
+//        on dl.semester_id = s.semester_id
+//        join disciplines d
+//        on dl.discipline_id = d.discipline_id
+//        where s.semester_id = ?;
         rs = null;
         Semester result = new Semester();
+        List<Discipline> disciplineList = new ArrayList<Discipline>();
+
         try {
             selectSemesterById.setLong(1, semesterId);
             rs = selectSemesterById.executeQuery();
             while (rs.next()) {
-                result.setSemesterId(rs.getLong("semester_id"));
-                result.setName(rs.getString("name"));
-                result.setDuration(rs.getLong("duration"));
+                if(result.getSemesterId() == 0 || result.getName() == null || result.getDuration() == 0) {
+                    result.setSemesterId(rs.getLong("semester_id"));
+                    result.setName(rs.getString("semester_name"));
+                    result.setDuration(rs.getLong("duration"));
+                }
+                Discipline discipline = new Discipline(rs.getLong("discipline_id"), rs.getString("discipline_name"));
+                disciplineList.add(discipline);
             }
+            result.setDisciplineList(disciplineList);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -356,6 +384,7 @@ public class DBConnection {
             insertStudent = conn.prepareStatement("insert into students(first_name, last_name, group_id, start_date, status) values (?, ?, ?, ?, 1);");
             insertDiscipline = conn.prepareStatement("insert into disciplines(name) values(?);");
             insertSemester = conn.prepareStatement("insert into semesters(name, duration) values(?, ?);");
+            selectSemesterIdByName = conn.prepareStatement("select semester_id from semesters where name = ?;");
             selectAllRoles = conn.prepareStatement("select * from roles;");
             validateUser = conn.prepareStatement("select * from users where username = ? and password = ?;");
             validateRole = conn.prepareStatement("select * from user_roles where username = ? and role_id = (select role_id from roles where name = ?);");
@@ -363,7 +392,16 @@ public class DBConnection {
             updateStudent = conn.prepareStatement("update students set first_name = ?, last_name = ?, group_id = ?, start_date = ? where student_id = ?;");
             selectDisciplineById = conn.prepareStatement("select * from disciplines where discipline_id = ?;");
             updateDiscipline = conn.prepareStatement("update disciplines set name = ? where name = ?;");
-            selectSemesterById = conn.prepareStatement("select * from semesters where semester_id = ?;");
+            selectSemesterById = conn.prepareStatement("SELECT s.semester_id,\n" +
+                    "       s.name semester_name,\n" +
+                    "       s.duration,\n" +
+                    "       d.discipline_id,\n" +
+                    "       d.name discipline_name\n" +
+                    "FROM discipline_list dl JOIN semesters s\n" +
+                    "ON dl.semester_id = s.semester_id\n" +
+                    "JOIN disciplines d\n" +
+                    "ON dl.discipline_id = d.discipline_id\n" +
+                    "WHERE s.semester_id = ?;");
         } catch (SQLException e) {
             e.printStackTrace();
         }
