@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,6 +38,9 @@ public class SemestersModifyingController extends HttpServlet {
             }
 
             req.setAttribute("discList", semDiscList);
+            req.setAttribute("semName", semester.getName());
+            req.setAttribute("semDur", semester.getDuration());
+            req.setAttribute("semId", semester.getSemesterId());
             req.setAttribute("titleAttribute", "Modify semester");
             req.setAttribute("currentPage", "semestersModifying.jsp");
 
@@ -50,6 +54,26 @@ public class SemestersModifyingController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        DataService service = new DataService();
+        List<Discipline> disciplineList = new ArrayList<Discipline>();
+        String[] disciplinesStringList = req.getParameterValues("disciplineList");
+
+        for(String currDisc : disciplinesStringList) {
+            Discipline discipline = new Discipline(Long.parseLong(currDisc));
+            disciplineList.add(discipline);
+        }
+
+        Semester semester = new Semester(Long.parseLong(req.getParameter("semId")),
+                req.getParameter("semesterName"),
+                disciplineList,
+                Long.parseLong(req.getParameter("semesterDuration")));
+
+        service.updateSemesterById(semester);
+        service.deleteDisciplinesBySemesterId(semester.getSemesterId());
+        service.insertSemesterDisciplines(semester);
+
+        String currentRole = (String)req.getSession().getAttribute("role");
+        resp.sendRedirect("/" + currentRole + "/sem_list");
+        return;
     }
 }

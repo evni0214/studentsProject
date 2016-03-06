@@ -39,7 +39,7 @@ public class SemestersListController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         DataService service = new DataService();
         String semesterId = req.getParameter("ids");
-        service.deleteSemesterById(semesterId);
+        service.deleteSemesterById(Long.parseLong(semesterId));
 
         String currentRole = (String)req.getSession().getAttribute("role");
         resp.sendRedirect("/" + currentRole + "/sem_list");

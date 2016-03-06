@@ -206,4 +206,17 @@
         <url-pattern>/administrator/sem_modify</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>StudentsProgressController</servlet-name>
+        <servlet-class>controllers.StudentsProgressController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentsProgressController</servlet-name>
+        <url-pattern>/student/stud_progress</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentsProgressController</servlet-name>
+        <url-pattern>/administrator/stud_progress</url-pattern>
+    </servlet-mapping>
+
 </web-app>

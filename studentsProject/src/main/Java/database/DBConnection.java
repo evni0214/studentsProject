@@ -32,6 +32,8 @@ public class DBConnection {
     private static PreparedStatement deleteDisciplines;
     private static PreparedStatement selectSemesterById;
     private static PreparedStatement deleteSemesterById;
+    private static PreparedStatement deleteDisciplinesBySemesterId;
+    private static PreparedStatement updateSemesterById;
 
     public DBConnection(String DB_URL) {
         try {
@@ -377,11 +379,33 @@ public class DBConnection {
         return result;
     }
 
-    public void deleteSemesterById(String semesterId) {
+    public void deleteSemesterById(Long semesterId) {
 //        delete from semesters where semester_id = ?;
         try {
-            deleteSemesterById.setString(1, semesterId);
+            deleteSemesterById.setLong(1, semesterId);
             deleteSemesterById.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteDisciplinesBySemesterId(Long semesterId) {
+//        delete from discipline_list where semester_id = ?;
+        try {
+            deleteDisciplinesBySemesterId.setLong(1, semesterId);
+            deleteDisciplinesBySemesterId.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateSemesterById(Semester semester) {
+//        update semesters set name = ?, duration = ? where semester_id = ?;
+        try {
+            updateSemesterById.setString(1, semester.getName());
+            updateSemesterById.setLong(2, semester.getDuration());
+            updateSemesterById.setLong(3, semester.getSemesterId());
+            updateSemesterById.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -414,6 +438,8 @@ public class DBConnection {
                     "ON dl.discipline_id = d.discipline_id\n" +
                     "WHERE s.semester_id = ?;");
             deleteSemesterById = conn.prepareStatement("delete from semesters where semester_id = ?;");
+            deleteDisciplinesBySemesterId = conn.prepareStatement("delete from discipline_list where semester_id = ?;");
+            updateSemesterById = conn.prepareStatement("update semesters set name = ?, duration = ? where semester_id = ?;");
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -5,11 +5,14 @@
                     <div style="float: left">
                         <a href="/${role}/home"> Go to main </a>
                     </div>
+                    <div style="float: left; margin-left: 15px;">
+                        <a href="/${role}/home"> Previous page </a>
+                    </div>
                     <div class="content">
                         <table width="450px">
                             <tr>
                                 <td class="fieldLeftNameColStyle">
-                                    <input type="submit" class="veryWideButton" value="View performance of particular students" name="viewStudent">
+                                    <input type="submit" class="veryWideButton" value="View performance of particular student" name="viewStudent" onclick="bulkOperation('modify', '/${role}/stud_progress')">
                                 </td>
                                 <td class="fieldLeftNameColStyle">
                                     <input type="submit" class="mediumButton" value="Create new student" name="crStudent" onclick="location.href='/${role}/stud_create'">

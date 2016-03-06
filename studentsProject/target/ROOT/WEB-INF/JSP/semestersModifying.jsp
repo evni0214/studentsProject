@@ -21,7 +21,7 @@
                                 <a> Semester name </a>
                             </td>
                             <td class="fieldColStyle">
-                                <input type="text" name="semesterName" id="semesterName">
+                                <input type="text" name="semesterName" id="semesterName" value="${semName}">
                             </td>
                         </tr>
                         <tr class="spaceRow"></tr>
@@ -30,7 +30,7 @@
                                 <a> Duration (weeks) </a>
                             </td>
                             <td class="fieldColStyle">
-                                <input type="text" name="semesterDuration" id="semesterDuration">
+                                <input type="text" name="semesterDuration" id="semesterDuration" value="${semDur}">
                             </td>
                         </tr>
                         <tr class="spaceRow"></tr>
@@ -60,6 +60,7 @@
                             </td>
                         </tr>
                     </table>
+                    <input type="hidden" name="semId" id="semId" value="${semId}">
                 </form>
             </div>
         </div>

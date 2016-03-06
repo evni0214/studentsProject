@@ -149,9 +149,21 @@ public class DataService {
         return result;
     }
 
-    public void deleteSemesterById(String semesterId) {
+    public void deleteSemesterById(Long semesterId) {
         DBConnection conn = connectionPool.remove(0);
         conn.deleteSemesterById(semesterId);
+        connectionPool.add(conn);
+    }
+
+    public void deleteDisciplinesBySemesterId(Long semesterId) {
+        DBConnection conn = connectionPool.remove(0);
+        conn.deleteDisciplinesBySemesterId(semesterId);
+        connectionPool.add(conn);
+    }
+
+    public void updateSemesterById(Semester semester) {
+        DBConnection conn = connectionPool.remove(0);
+        conn.updateSemesterById(semester);
         connectionPool.add(conn);
     }
 
