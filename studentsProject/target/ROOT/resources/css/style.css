@@ -153,6 +153,9 @@ body {
     width: 175px;
     height: 150px;
 }
+.existedDiscipline {
+    background: orange;
+}
 .checkBoxColumn {
     text-align: center;
 }

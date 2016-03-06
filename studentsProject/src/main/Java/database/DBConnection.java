@@ -31,6 +31,7 @@ public class DBConnection {
     private static PreparedStatement updateDiscipline;
     private static PreparedStatement deleteDisciplines;
     private static PreparedStatement selectSemesterById;
+    private static PreparedStatement deleteSemesterById;
 
     public DBConnection(String DB_URL) {
         try {
@@ -376,6 +377,16 @@ public class DBConnection {
         return result;
     }
 
+    public void deleteSemesterById(String semesterId) {
+//        delete from semesters where semester_id = ?;
+        try {
+            deleteSemesterById.setString(1, semesterId);
+            deleteSemesterById.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void loadPreparedStatements(){
         try {
             selectAllStudents = conn.prepareStatement("select * from students where status = 1;");
@@ -402,6 +413,7 @@ public class DBConnection {
                     "JOIN disciplines d\n" +
                     "ON dl.discipline_id = d.discipline_id\n" +
                     "WHERE s.semester_id = ?;");
+            deleteSemesterById = conn.prepareStatement("delete from semesters where semester_id = ?;");
         } catch (SQLException e) {
             e.printStackTrace();
         }

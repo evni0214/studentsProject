@@ -36,6 +36,7 @@
                         <br>
                         <div>
                             <a class="textStyle" style="float: left;"> List of "${currSemName}" disciplines: </a>
+                            <input hidden type="checkbox" checked id="${currSemId}">
                         </div>
                         <br>
                         <br>
@@ -53,10 +54,10 @@
                             <input class="wideButton" type="submit" value="Create new semester" name="newSemester" onclick="location.href='/${role}/sem_create'">
                             <br>
                             <br>
-                            <input class="wideButton" type="submit" value="Modify existing semester" name="modifySemester">
+                            <input class="wideButton" type="submit" value="Modify existing semester" name="modifySemester" onclick="bulkOperation('modify', '/${role}/sem_modify')">
                             <br>
                             <br>
-                            <input class="wideButton" type="submit" value="Delete semester" name="deleteSemester">
+                            <input class="wideButton" type="submit" value="Delete semester" name="deleteSemester" onclick="bulkOperation('delete', '/${role}/sem_list')">
                         </div>
                     </div>
                 </div>

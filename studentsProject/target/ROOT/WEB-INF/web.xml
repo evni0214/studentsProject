@@ -193,4 +193,17 @@
         <url-pattern>/administrator/disc_modify</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>SemestersModifyingController</servlet-name>
+        <servlet-class>controllers.SemestersModifyingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SemestersModifyingController</servlet-name>
+        <url-pattern>/student/sem_modify</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SemestersModifyingController</servlet-name>
+        <url-pattern>/administrator/sem_modify</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -29,8 +29,20 @@ public class SemestersListController extends HttpServlet {
         req.setAttribute("currSemDisc", currentSemester.getDisciplineList());
         req.setAttribute("currSemDur", currentSemester.getDuration());
         req.setAttribute("currSemName", currentSemester.getName());
+        req.setAttribute("currSemId", currentSemester.getSemesterId());
         req.setAttribute("titleAttribute", "List of semesters");
         req.setAttribute("currentPage", "semestersList.jsp");
         req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        DataService service = new DataService();
+        String semesterId = req.getParameter("ids");
+        service.deleteSemesterById(semesterId);
+
+        String currentRole = (String)req.getSession().getAttribute("role");
+        resp.sendRedirect("/" + currentRole + "/sem_list");
+        return;
     }
 }
