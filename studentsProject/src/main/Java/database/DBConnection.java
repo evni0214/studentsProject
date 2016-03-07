@@ -4,7 +4,9 @@ import entity.*;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Evgeny on 18.02.2016.
@@ -34,6 +36,7 @@ public class DBConnection {
     private static PreparedStatement deleteSemesterById;
     private static PreparedStatement deleteDisciplinesBySemesterId;
     private static PreparedStatement updateSemesterById;
+    private static PreparedStatement selectStudentMarksBySemester;
 
     public DBConnection(String DB_URL) {
         try {
@@ -265,6 +268,7 @@ public class DBConnection {
             selectStudentById.setString(1, student_id);
             rs = selectStudentById.executeQuery();
             while(rs.next()) {
+                student.setStudentId(rs.getLong("student_id"));
                 student.setFirstName(rs.getString("first_name"));
                 student.setLastName(rs.getString("last_name"));
                 student.setGroupId(rs.getString("group_id"));
@@ -411,6 +415,30 @@ public class DBConnection {
         }
     }
 
+    public Map<Discipline, Integer> selectStudentMarksBySemester(Student student, Long semesterId) {
+//        select d.discipline_id, d.name, m.mark
+//        from marks m join discipline_list dl
+//        on m.pair_id = dl.pair_id
+//        join disciplines d
+//        on dl.discipline_id = d.discipline_id
+//        where m.student_id = ? and dl.semester_id = ?;
+        rs = null;
+        Map<Discipline, Integer> studentsMarks = new HashMap<Discipline, Integer>();
+        try {
+            selectStudentMarksBySemester.setLong(1, student.getStudentId());
+            selectStudentMarksBySemester.setLong(2, semesterId);
+            rs = selectStudentMarksBySemester.executeQuery();
+            while (rs.next()) {
+                Discipline discipline = new Discipline(rs.getLong("discipline_id"), rs.getString("name"));
+                studentsMarks.put(discipline, rs.getInt("mark"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return studentsMarks;
+    }
+
     private void loadPreparedStatements(){
         try {
             selectAllStudents = conn.prepareStatement("select * from students where status = 1;");
@@ -440,6 +468,12 @@ public class DBConnection {
             deleteSemesterById = conn.prepareStatement("delete from semesters where semester_id = ?;");
             deleteDisciplinesBySemesterId = conn.prepareStatement("delete from discipline_list where semester_id = ?;");
             updateSemesterById = conn.prepareStatement("update semesters set name = ?, duration = ? where semester_id = ?;");
+            selectStudentMarksBySemester = conn.prepareStatement("SELECT d.discipline_id, d.name, m.mark\n" +
+                    "FROM marks m JOIN discipline_list dl\n" +
+                    "ON m.pair_id = dl.pair_id\n" +
+                    "JOIN disciplines d\n" +
+                    "ON dl.discipline_id = d.discipline_id\n" +
+                    "WHERE student_id = ? AND dl.semester_id = ?;");
         } catch (SQLException e) {
             e.printStackTrace();
         }

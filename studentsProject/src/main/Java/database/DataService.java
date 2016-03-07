@@ -8,6 +8,7 @@ import entity.Student;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Evgeny on 18.02.2016.
@@ -165,6 +166,14 @@ public class DataService {
         DBConnection conn = connectionPool.remove(0);
         conn.updateSemesterById(semester);
         connectionPool.add(conn);
+    }
+
+    public Map<Discipline, Integer> selectStudentMarksBySemester(Student student, Long semesterId) {
+        DBConnection conn = connectionPool.remove(0);
+        Map<Discipline, Integer> result = conn.selectStudentMarksBySemester(student, semesterId);
+        connectionPool.add(conn);
+
+        return result;
     }
 
 }

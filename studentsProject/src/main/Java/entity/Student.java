@@ -1,6 +1,8 @@
 package entity;
 
+import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.Map;
 
 /**
  * Created by Evgeny on 06.02.2016.
@@ -12,6 +14,40 @@ public class Student {
     private String groupId;
     private Date startDate;
     private Boolean status;
+    private Map<Discipline, Integer> marks;
+
+    public Map<Discipline, Integer> getMarks() {
+        return marks;
+    }
+
+    public Double getAvgMark() {
+        Double result = 0D;
+
+        Map<Discipline, Integer> studentMarks = this.getMarks();
+        for(Map.Entry<Discipline, Integer> entry : studentMarks.entrySet()) {
+            result = result + entry.getValue();
+        }
+
+        result = result / studentMarks.size();
+
+        result = new BigDecimal(result).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+
+        return result;
+    }
+
+    public void setMarks(Map<Discipline, Integer> marks) {
+        this.marks = marks;
+    }
+
+    public Student(long studentId, String firstName, String lastName, String groupId, Date startDate, Boolean status, Map<Discipline, Integer> marks) {
+        this.studentId = studentId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.groupId = groupId;
+        this.startDate = startDate;
+        this.status = status;
+        this.marks = marks;
+    }
 
     public Student(String firstName, String lastName, String groupId, Date startDate) {
         this.firstName = firstName;
