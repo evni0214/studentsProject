@@ -184,4 +184,18 @@ public class DataService {
         return result;
     }
 
+    public Integer selectParticularMark(Long studentId, Long disciplineId, Long semesterId) {
+        DBConnection conn = connectionPool.remove(0);
+        Integer result = conn.selectParticularMark(studentId, disciplineId, semesterId);
+        connectionPool.add(conn);
+
+        return result;
+    }
+
+    public void updateParticularMark(Long studentId, Long pairId, Integer mark) {
+        DBConnection conn = connectionPool.remove(0);
+        conn.updateParticularMark(studentId, pairId, mark);
+        connectionPool.add(conn);
+    }
+
 }

@@ -42,6 +42,7 @@ public class MarksShowingController extends HttpServlet {
         req.setAttribute("semesterList", semesterList);
         req.setAttribute("studentId", student.getStudentId());
         req.setAttribute("semesterId", semesterId);
+        req.setAttribute("titleAttribute", "Show the marks");
         req.setAttribute("currentPage", "marksShowing.jsp");
         req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
     }

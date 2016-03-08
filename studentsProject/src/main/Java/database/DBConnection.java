@@ -38,6 +38,8 @@ public class DBConnection {
     private static PreparedStatement updateSemesterById;
     private static PreparedStatement selectStudentMarksBySemester;
     private static PreparedStatement selectAllStudentMarksBySemester;
+    private static PreparedStatement selectParticularMark;
+    private static PreparedStatement updateParticularMark;
 
     public DBConnection(String DB_URL) {
         try {
@@ -102,7 +104,7 @@ public class DBConnection {
     }
 
     public List<Semester> selectAllSemesters() {
-//        select * from semesters;
+//        select * from semesters order by name ASC;
         rs = null;
         List<Semester> result = new ArrayList<Semester>();
 
@@ -462,11 +464,50 @@ public class DBConnection {
         return studentsMarks;
     }
 
+    public Integer selectParticularMark(Long studentId, Long disciplineId, Long semesterId) {
+//        select COALESCE(m.mark, 0) mark
+//        from discipline_list dl left join marks m
+//        on dl.pair_id = m.pair_id and m.student_id = =?
+//        where dl.discipline_id = ? and dl.semester_id = ?;
+        rs = null;
+        Integer result = 0;
+
+        try {
+            selectParticularMark.setLong(1, studentId);
+            selectParticularMark.setLong(2, disciplineId);
+            selectParticularMark.setLong(3, semesterId);
+            rs = selectParticularMark.executeQuery();
+            rs.next();
+            result = rs.getInt("mark");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    public void updateParticularMark(Long studentId, Long pairId, Integer mark) {
+//        INSERT INTO marks (student_id, pair_id, mark)
+//        VALUES (?, ?, ?)
+//        ON DUPLICATE KEY UPDATE student_id = ?, pair_id = ?, mark = ?;
+        try {
+            updateParticularMark.setLong(1, studentId);
+            updateParticularMark.setLong(2, pairId);
+            updateParticularMark.setInt(3, mark);
+            updateParticularMark.setLong(4, studentId);
+            updateParticularMark.setLong(5, pairId);
+            updateParticularMark.setInt(6, mark);
+            selectParticularMark.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void loadPreparedStatements(){
         try {
             selectAllStudents = conn.prepareStatement("select * from students where status = 1;");
-            selectAllDisciplines = conn.prepareStatement("select * from disciplines;");
-            selectAllSemesters = conn.prepareStatement("select * from semesters;");
+            selectAllDisciplines = conn.prepareStatement("select * from disciplines order by name ASC;");
+            selectAllSemesters = conn.prepareStatement("select * from semesters order by name ASC;");
             insertStudent = conn.prepareStatement("insert into students(first_name, last_name, group_id, start_date, status) values (?, ?, ?, ?, 1);");
             insertDiscipline = conn.prepareStatement("insert into disciplines(name) values(?);");
             insertSemester = conn.prepareStatement("insert into semesters(name, duration) values(?, ?);");
@@ -502,6 +543,13 @@ public class DBConnection {
                     "ON dl.pair_id = m.pair_id AND m.student_id = ?\n" +
                     "JOIN disciplines d\n" +
                     "ON dl.discipline_id = d.discipline_id AND dl.semester_id = ?;");
+            selectParticularMark = conn.prepareStatement("select COALESCE(m.mark, 0) mark\n" +
+                    "from discipline_list dl left join marks m\n" +
+                    "on dl.pair_id = m.pair_id and m.student_id = ?\n" +
+                    "where dl.discipline_id = ? and dl.semester_id = ?;");
+            updateParticularMark = conn.prepareStatement("INSERT INTO marks (student_id, pair_id, mark)\n" +
+                    "VALUES (?, ?, ?)\n" +
+                    "ON DUPLICATE KEY UPDATE student_id = ?, pair_id = ?, mark = ?;");
         } catch (SQLException e) {
             e.printStackTrace();
         }

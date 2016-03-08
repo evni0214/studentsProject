@@ -41,12 +41,14 @@
                             <td class="fieldColStyle">
                                 <select class="multiSelectStyle" multiple name="disciplineList" id="disciplineList">
                                     <c:forEach items="${discList}" var="entry">
-                                        <c:if test="${entry.value eq '1'}">
-                                            <option class="existedDiscipline" value="${entry.key.disciplineId}"> ${entry.key.name} </option>
-                                        </c:if>
-                                        <c:if test="${entry.value eq '0'}">
-                                            <option value="${entry.key.disciplineId}"> ${entry.key.name} </option>
-                                        </c:if>
+                                        <c:choose>
+                                            <c:when test="${entry.value eq '1'}">
+                                                <option class="selectedOption" value="${entry.key.disciplineId}"> ${entry.key.name} </option>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <option value="${entry.key.disciplineId}"> ${entry.key.name} </option>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </c:forEach>
                                 </select>
                             </td>

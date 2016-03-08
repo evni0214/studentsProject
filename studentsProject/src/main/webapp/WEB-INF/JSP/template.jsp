@@ -58,26 +58,30 @@
                     $('#hiddenForm').submit();
                 }
             } else if(operationName == 'delete') {
-                var ids = "";
-                for (var i = 0; i < items.length; i++) {
-                    ids += $(items[i]).attr("id");
-                    if (i < items.length - 1) {
-                        ids += ",";
+                if (confirm('Are you sure you want to delete this object?')) {
+                    var ids = "";
+                    for (var i = 0; i < items.length; i++) {
+                        ids += $(items[i]).attr("id");
+                        if (i < items.length - 1) {
+                            ids += ",";
+                        }
                     }
-                }
 
-                console.log(ids);
-                console.log("ids=" + ids);
-                var form = '<form id="hiddenForm" action="'
-                        + 'http://'
-                        + document.location.host
-                        + controllerAddress
-                        + '" method="post"><input type="hidden" name="ids" id="ids">'
-                        + '<input type="hidden" name="operation" id="operation">'
-                        + '</form>';
-                $("body").append(form);
-                $('#ids').val(ids);
-                $('#hiddenForm').submit();
+                    console.log(ids);
+                    console.log("ids=" + ids);
+                    var form = '<form id="hiddenForm" action="'
+                            + 'http://'
+                            + document.location.host
+                            + controllerAddress
+                            + '" method="post"><input type="hidden" name="ids" id="ids">'
+                            + '<input type="hidden" name="operation" id="operation">'
+                            + '</form>';
+                    $("body").append(form);
+                    $('#ids').val(ids);
+                    $('#hiddenForm').submit();
+                } else {
+                    // Do nothing!
+                }
             }
         }
     </script>

@@ -39,19 +39,23 @@
                                 </tr>
                                 <tr class="spaceRow"></tr>
                             </table>
-                            <table width="600px">
+                            <input type="hidden" name="studentId" id="studentId" value="${studentId}">
+                            <input type="hidden" name="semesterId" id="semesterId" value="${semesterId}">
+                            <table width="300px" style="float: left;">
                                 <tr>
                                     <td class="fieldLeftNameColStyle">
                                         <input class="smallButton" type="submit" value="Show marks" name="showMarks">
                                     </td>
-                                    <td class="fieldRightNameColStyle">
-                                        <input class="smallButton" type="submit" value="Set mark" name="setMarks">
-                                    </td>
                                 </tr>
                             </table>
-                            <input type="hidden" name="studentId" id="studentId" value="${studentId}">
-                            <input type="hidden" name="semesterId" id="semesterId" value="${semesterId}">
                         </form>
+                        <table width="300px">
+                            <tr>
+                                <td class="fieldRightNameColStyle">
+                                    <input class="smallButton" type="submit" value="Set mark" name="setMarks" onclick="location.href='/${role}/marks_management'">
+                                </td>
+                            </tr>
+                        </table>
                         <br>
                         <br>
                         <a class="textStyle"> Results for student "Петров" in semester "Семестр 1":</a>

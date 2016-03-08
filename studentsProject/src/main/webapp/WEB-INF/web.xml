@@ -232,4 +232,17 @@
         <url-pattern>/administrator/marks_disp</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MarksManagementController</servlet-name>
+        <servlet-class>controllers.MarksManagementController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MarksManagementController</servlet-name>
+        <url-pattern>/student/marks_management</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MarksManagementController</servlet-name>
+        <url-pattern>/administrator/marks_management</url-pattern>
+    </servlet-mapping>
+
 </web-app>
