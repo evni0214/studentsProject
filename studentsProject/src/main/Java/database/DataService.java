@@ -108,7 +108,7 @@ public class DataService {
         return result;
     }
 
-    public Student selectStudentById(String student_id) {
+    public Student selectStudentById(Long student_id) {
         DBConnection conn = connectionPool.remove(0);
         Student result = conn.selectStudentById(student_id);
         connectionPool.add(conn);
@@ -171,6 +171,14 @@ public class DataService {
     public Map<Discipline, Integer> selectStudentMarksBySemester(Student student, Long semesterId) {
         DBConnection conn = connectionPool.remove(0);
         Map<Discipline, Integer> result = conn.selectStudentMarksBySemester(student, semesterId);
+        connectionPool.add(conn);
+
+        return result;
+    }
+
+    public Map<Discipline, Integer> selectAllStudentMarksBySemester(Student student, Long semesterId) {
+        DBConnection conn = connectionPool.remove(0);
+        Map<Discipline, Integer> result = conn.selectAllStudentMarksBySemester(student, semesterId);
         connectionPool.add(conn);
 
         return result;

@@ -18,12 +18,12 @@ public class StudentsProgressController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         DataService service = new DataService();
-        String studentId;
+        Long studentId;
 
         if(req.getParameter("ids") == null)
-            studentId = req.getParameter("studentId");
+            studentId = Long.parseLong(req.getParameter("studentId"));
         else
-            studentId = req.getParameter("ids");
+            studentId = Long.parseLong(req.getParameter("ids"));
 
         Student student = service.selectStudentById(studentId);
         List<Semester> semesterList = service.selectAllSemesters();
@@ -31,7 +31,7 @@ public class StudentsProgressController extends HttpServlet {
 
         if(req.getParameter("selectSemester") == null) {
             semesterId = semesterList.get(0).getSemesterId();
-            student.setMarks(service.selectStudentMarksBySemester(student, semesterList.get(0).getSemesterId()));
+            student.setMarks(service.selectStudentMarksBySemester(student, semesterId));
             req.setAttribute("semName", semesterList.get(0).getName());
         }
         else {
@@ -45,11 +45,11 @@ public class StudentsProgressController extends HttpServlet {
                 continue;
             }
         }
-
         req.setAttribute("semesterList", semesterList);
         req.setAttribute("marks", student.getMarks());
         req.setAttribute("studentId", student.getStudentId());
         req.setAttribute("lastName", student.getLastName());
+        System.out.println();
         req.setAttribute("firstName", student.getFirstName());
         req.setAttribute("groupId", student.getGroupId());
         req.setAttribute("startDate", student.getStartDate());
@@ -57,10 +57,5 @@ public class StudentsProgressController extends HttpServlet {
         req.setAttribute("currentPage", "studentsProgress.jsp");
         req.setAttribute("titleAttribute", "Progress of selected student");
         req.getRequestDispatcher("/WEB-INF/JSP/template.jsp").forward(req, resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
     }
 }

@@ -37,6 +37,7 @@ public class DBConnection {
     private static PreparedStatement deleteDisciplinesBySemesterId;
     private static PreparedStatement updateSemesterById;
     private static PreparedStatement selectStudentMarksBySemester;
+    private static PreparedStatement selectAllStudentMarksBySemester;
 
     public DBConnection(String DB_URL) {
         try {
@@ -59,8 +60,7 @@ public class DBConnection {
             rs = selectAllStudents.executeQuery();
             while(rs.next()) {
                 Student student = new Student();
-
-                student.setStudentId(rs.getInt("student_id"));
+                student.setStudentId(rs.getLong("student_id"));
                 student.setFirstName(rs.getString("first_name"));
                 student.setLastName(rs.getString("last_name"));
                 student.setGroupId(rs.getString("group_id"));
@@ -259,13 +259,13 @@ public class DBConnection {
         return result;
     }
 
-    public Student selectStudentById(String student_id) {
+    public Student selectStudentById(Long student_id) {
 //        select * from students where student_id = ?;
         rs = null;
         Student student = new Student();
 
         try {
-            selectStudentById.setString(1, student_id);
+            selectStudentById.setLong(1, student_id);
             rs = selectStudentById.executeQuery();
             while(rs.next()) {
                 student.setStudentId(rs.getLong("student_id"));
@@ -439,6 +439,29 @@ public class DBConnection {
         return studentsMarks;
     }
 
+    public Map<Discipline, Integer> selectAllStudentMarksBySemester(Student student, Long semesterId) {
+//        select d.discipline_id, d.name, COALESCE(m.mark, 0) mark
+//        from discipline_list dl left join marks m
+//        on dl.pair_id = m.pair_id and m.student_id = ?
+//        join disciplines d
+//        on dl.discipline_id = d.discipline_id and dl.semester_id = ?;
+        rs = null;
+        Map<Discipline, Integer> studentsMarks = new HashMap<Discipline, Integer>();
+        try {
+            selectAllStudentMarksBySemester.setLong(1, student.getStudentId());
+            selectAllStudentMarksBySemester.setLong(2, semesterId);
+            rs = selectAllStudentMarksBySemester.executeQuery();
+            while (rs.next()) {
+                Discipline discipline = new Discipline(rs.getLong("discipline_id"), rs.getString("name"));
+                studentsMarks.put(discipline, rs.getInt("mark"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return studentsMarks;
+    }
+
     private void loadPreparedStatements(){
         try {
             selectAllStudents = conn.prepareStatement("select * from students where status = 1;");
@@ -474,6 +497,11 @@ public class DBConnection {
                     "JOIN disciplines d\n" +
                     "ON dl.discipline_id = d.discipline_id\n" +
                     "WHERE student_id = ? AND dl.semester_id = ?;");
+            selectAllStudentMarksBySemester = conn.prepareStatement("SELECT d.discipline_id, d.name, COALESCE(m.mark, 0) mark\n" +
+                    "FROM discipline_list dl LEFT JOIN marks m\n" +
+                    "ON dl.pair_id = m.pair_id AND m.student_id = ?\n" +
+                    "JOIN disciplines d\n" +
+                    "ON dl.discipline_id = d.discipline_id AND dl.semester_id = ?;");
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -21,6 +21,9 @@ public class Student {
     }
 
     public Double getAvgMark() {
+        if(this.getMarks().isEmpty())
+            return 0D;
+
         Double result = 0D;
 
         Map<Discipline, Integer> studentMarks = this.getMarks();

@@ -49,7 +49,7 @@
                         <a> Entrance date </a>
                     </td>
                     <td class="fieldColStyle">
-                        <input type="text" name="startDate" id="startDate" value="${stud_start_date}">
+                        <input type="text" name="startDate" id="startDate" value="${stud_start_date}" readonly="readonly">
                     </td>
                 </tr>
                 <tr class="spaceRow"></tr>

@@ -1,32 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<html>
-<head>
-    <meta charset="windows-1251">
-    <title>Mark showing</title>
-</head>
-
-<style type="text/css">
-    @import "/resources/css/style.css";
-</style>
-
-    <body>
-        <div class="main">
-            <div class="header">
-                <div class="emptyTitle"></div>
-                <div class="title"> The control system of students and their academic performance
-                </div>
-                <div class="logout"> <a href="/logout"> Logout </a>
-                </div>
-            </div>
-            <div class="pageElements">
                 <div class="buttons">
                     <div style="float: left">
                         <a href="/${role}/home"> Go to main </a>
                     </div>
                     <div style="float: left; margin-left: 15px">
-                        <a href="https://google.com/"> Previous page </a>
+                        <a href="/${role}/home"> Previous page </a>
                     </div>
                     <div class="content">
                         <div class="titleTextStyle">
@@ -34,16 +13,16 @@
                         </div>
                         <br>
                         <br>
-                        <form class="wideFormStyle">
+                        <form class="wideFormStyle" action="/${role}/mark_list" method="get">
                             <table width="600px">
                                 <tr>
                                     <td class="fieldLeftNameColStyle">
                                         <a> Select student: </a>
                                     </td>
                                     <td class="fieldColStyle">
-                                        <select class="selectStyle" name="selectStudent">
+                                        <select class="selectStyle" name="selectStudent" id="selectStudent">
                                             <c:forEach items="${studentList}" var="st">
-                                                <option> ${st.firstName} &nbsp; ${st.lastName} &nbsp; ${st.groupId}</option>
+                                                <option value="${st.studentId}"> ${st.firstName} &nbsp; ${st.lastName} &nbsp; ${st.groupId}</option>
                                             </c:forEach>
                                         </select>
                                     </td>
@@ -51,20 +30,27 @@
                                         <a> Select semester: </a>
                                     </td>
                                     <td class="fieldColStyle">
-                                        <select class="selectStyle" name="selectSemester">
+                                        <select class="selectStyle" name="selectSemester" id="selectSemester">
                                             <c:forEach items="${semesterList}" var="sem">
-                                                <option> ${sem.semesterName} </option>
+                                                <option value="${sem.semesterId}"> ${sem.name} </option>
                                             </c:forEach>
                                         </select>
                                     </td>
                                 </tr>
                                 <tr class="spaceRow"></tr>
+                            </table>
+                            <table width="600px">
                                 <tr>
                                     <td class="fieldLeftNameColStyle">
-                                        <input class="smallButton" type="submit" value="Show" name="showMarks">
+                                        <input class="smallButton" type="submit" value="Show marks" name="showMarks">
+                                    </td>
+                                    <td class="fieldRightNameColStyle">
+                                        <input class="smallButton" type="submit" value="Set mark" name="setMarks">
                                     </td>
                                 </tr>
                             </table>
+                            <input type="hidden" name="studentId" id="studentId" value="${studentId}">
+                            <input type="hidden" name="semesterId" id="semesterId" value="${semesterId}">
                         </form>
                         <br>
                         <br>
@@ -73,19 +59,19 @@
                         <br>
                         <table width="500px" border="1">
                             <tr class="firstTableRow">
-                                <td> Semester </td>
+                                <td hidden> </td>
                                 <td> Discipline </td>
                                 <td> Mark </td>
                             </tr>
-                            <tr>
-                                <td> Семестр 1 </td>
-                                <td> Информатика </td>
-                                <td> 5 </td>
-                            </tr>
+                            <c:forEach items="${marks}" var="entry">
+                                <tr class="tableTextStyle">
+                                    <td hidden> <input hidden type="checkbox" checked id="${entry.key.disciplineId}"> </td>
+                                    <td> ${entry.key.name} </td>
+                                    <td> ${entry.value} </td>
+                                </tr>
+                            </c:forEach>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>

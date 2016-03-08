@@ -48,7 +48,7 @@
                                         <a> Entrance date </a>
                                     </td>
                                     <td class="fieldColStyle">
-                                        <input type="text" name="startDate" id="startDate">
+                                        <input type="text" name="startDate" id="startDate" readonly="readonly">
                                     </td>
                                 </tr>
                                 <tr class="spaceRow"></tr>

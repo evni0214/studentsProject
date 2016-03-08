@@ -219,4 +219,17 @@
         <url-pattern>/administrator/stud_progress</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MarkShowingController</servlet-name>
+        <servlet-class>controllers.MarksShowingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MarkShowingController</servlet-name>
+        <url-pattern>/student/marks_disp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MarkShowingController</servlet-name>
+        <url-pattern>/administrator/marks_disp</url-pattern>
+    </servlet-mapping>
+
 </web-app>
